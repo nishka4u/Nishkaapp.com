@@ -84,14 +84,16 @@ h3{font-size:1.3rem}
 .lead{font-size:1.15rem;color:var(--muted);max-width:650px}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .hero-visual{min-height:440px;border-radius:34px;background:linear-gradient(145deg,#ead8ee,#f7efe3);position:relative;overflow:hidden;box-shadow:var(--shadow)}
-.visual-main{position:absolute;inset:28px;background:linear-gradient(135deg,#fff 0%,#f8edf8 50%,#f7ead8 100%);border-radius:28px;display:flex;align-items:center;justify-content:center;text-align:center}
+.visual-main{position:absolute;inset:28px;background:linear-gradient(135deg,#fff 0%,#f8edf8 50%,#f7ead8 100%);border-radius:28px;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;flex-direction:column}
+
+.visual-main > div{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center}
 
 /* Override visual-person styles so the image sits unobstructed inside a cropped box */
 .visual-person{
-  width:280px;
-  max-width:90%;
+  width:100%;
+  max-width:380px;
   height:auto;
-  border-radius:8px;
+  border-radius:16px;
   background:none;
   position:relative;
   margin:auto;
@@ -106,7 +108,7 @@ h3{font-size:1.3rem}
 }
 .visual-person:before, .visual-person:after{display:none !important;}
 
-.visual-label{position:absolute;bottom:22px;left:24px;right:24px;background:rgba(255,255,255,.88);border-radius:16px;padding:13px;font-weight:800;color:var(--primary)}
+.visual-label{position:absolute;bottom:22px;left:24px;right:24px;background:rgba(255,255,255,.88);border-radius:16px;padding:13px;font-weight:800;color:var(--primary);text-align:center;font-size:0.95rem}
 .section{padding:82px 0}
 .section-soft{background:var(--soft)}
 .section-head{max-width:720px;margin-bottom:38px}
@@ -164,6 +166,7 @@ textarea{min-height:120px;resize:vertical}
 @media(max-width:700px){
  .hero{padding:58px 0}.hero-visual{min-height:330px}.grid-2,.grid-3,.form-grid,.footer-grid{grid-template-columns:1fr}.process{grid-template-columns:1fr 1fr}.section{padding:62px 0}.card{padding:20px}
  h1{font-size:2.65rem}.hero-actions{flex-direction:column;align-items:stretch}.btn{width:100%}
+ .visual-person{max-width:280px}
 }
 @media(max-width:430px){.process{grid-template-columns:1fr}}
 
