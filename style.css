@@ -88,8 +88,9 @@ h3{font-size:1.3rem}
 
 /* Override visual-person styles so the image sits unobstructed inside a cropped box */
 .visual-person{
-  width:160px;
-  height:160px;
+  width:280px;
+  max-width:90%;
+  height:auto;
   border-radius:8px;
   background:none;
   position:relative;
@@ -99,8 +100,8 @@ h3{font-size:1.3rem}
 }
 .visual-person img{
   width:100%;
-  height:100%;
-  object-fit:cover;
+  height:auto;
+  object-fit:contain;
   display:block;
 }
 .visual-person:before, .visual-person:after{display:none !important;}
@@ -161,7 +162,7 @@ textarea{min-height:120px;resize:vertical}
  .hero-grid,.form-wrap{grid-template-columns:1fr}.process{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:700px){
- .hero{padding:58px 0}.hero-visual{min-height:330px}.grid-2,.grid-3,.form-grid,.footer-grid{grid-template-columns:1fr}.process{grid-template-columns:1fr 1fr}.section{padding:62px 0}.card{padding:18px}
+ .hero{padding:58px 0}.hero-visual{min-height:330px}.grid-2,.grid-3,.form-grid,.footer-grid{grid-template-columns:1fr}.process{grid-template-columns:1fr 1fr}.section{padding:62px 0}.card{padding:20px}
  h1{font-size:2.65rem}.hero-actions{flex-direction:column;align-items:stretch}.btn{width:100%}
 }
 @media(max-width:430px){.process{grid-template-columns:1fr}}
