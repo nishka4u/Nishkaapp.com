@@ -1,7 +1,15 @@
 
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbysTlvsCNKAw7uJ9a5FfQUtkMncy7R7uKL-sS2pyI28QK9QjljFHd4wvk23W9rr1sDX/exec";
 
+let currentLanguage = localStorage.getItem('language') || 'en';
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Set initial language from localStorage
+  if (currentLanguage === 'kn') {
+    switchLanguage('kn');
+  }
+
+  // Mobile menu toggle
   const nav = document.querySelector(".nav");
   const menu = document.querySelector(".menu-btn");
   if (menu && nav) {
@@ -11,6 +19,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Language toggle
+  const langToggle = document.getElementById("langToggle");
+  if (langToggle) {
+    langToggle.addEventListener("click", () => {
+      currentLanguage = currentLanguage === 'en' ? 'kn' : 'en';
+      localStorage.setItem('language', currentLanguage);
+      switchLanguage(currentLanguage);
+    });
+  }
+
+  // Form submission
   document.querySelectorAll("[data-form]").forEach(form => {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -48,3 +67,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+function switchLanguage(lang) {
+  const langBtn = document.getElementById('langToggle');
+  if (langBtn) {
+    langBtn.querySelector('.lang-text').textContent = lang === 'en' ? 'KN' : 'EN';
+  }
+
+  document.querySelectorAll('[data-en][data-kn]').forEach(element => {
+    const text = lang === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-kn');
+    if (text) {
+      element.textContent = text;
+    }
+  });
+}
+
