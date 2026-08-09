@@ -34,6 +34,29 @@ img{max-width:100%;display:block}
 .btn-secondary{background:#f4edf6;color:var(--primary)}
 .btn-outline{border:1px solid var(--border);background:#fff;color:var(--primary)}
 .menu-btn{display:none;border:1px solid var(--border);background:#fff;border-radius:12px;padding:10px;font-size:1.1rem}
+
+/* Language Toggle Button */
+.language-toggle{display:flex;align-items:center;margin-left:auto}
+.lang-btn{
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:8px 16px;
+  border-radius:999px;
+  font-weight:700;
+  cursor:pointer;
+  font-size:.85rem;
+  transition:.2s ease;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.lang-btn:hover{
+  background:var(--primary-dark);
+  transform:translateY(-1px);
+}
+.lang-text{display:block;min-width:24px;text-align:center}
+
 .hero{
   padding:84px 0 70px;
   background:radial-gradient(circle at 85% 20%,#f7eefa 0,transparent 34%),
@@ -223,6 +246,10 @@ textarea{min-height:120px;resize:vertical}
   .hero-visual{min-height:500px;padding:25px}
   .visual-person{max-width:360px}
   .visual-label{max-width:360px;font-size:0.92rem}
+  
+  /* Tablet language toggle */
+  .language-toggle{margin-left:0;order:3;width:100%}
+  .lang-btn{width:100%;margin-top:10px}
 }
 
 /* Mobile Breakpoint (700px and below) - Professional Mobile Layout */
@@ -281,6 +308,10 @@ textarea{min-height:120px;resize:vertical}
   .footer{padding:40px 0 20px}
   .footer-grid{gap:24px}
   .footer-bottom{flex-direction:column;align-items:flex-start;gap:12px;font-size:0.8rem}
+  
+  /* Mobile language toggle */
+  .language-toggle{margin-left:auto;order:0}
+  .lang-btn{padding:6px 12px;font-size:0.75rem}
 }
 
 /* Small Mobile Breakpoint (480px and below) - Extra Optimization */
