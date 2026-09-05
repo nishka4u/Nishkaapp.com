@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#32136f">
+  <title>Connect with Nishka</title>
+
+  <style>
+    :root {
+      --purple: #32136f;
+      --gold: #d69b22;
+      --ink: #24164b;
+      --cream: #fffaf0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(145deg, #f7f0ff, #fff8e7);
+      color: var(--ink);
+      display: grid;
+      place-items: center;
+      padding: 22px;
+    }
+
+    main {
+      width: min(100%, 430px);
+      background: #fff;
+      border: 1px solid #ead9ad;
+      border-radius: 24px;
+      padding: 28px 20px;
+      box-shadow: 0 16px 45px #32136f22;
+      text-align: center;
+    }
+
+    .mark {
+      width: 72px;
+      height: 72px;
+      margin: auto;
+      border-radius: 22px;
+      background: var(--purple);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 42px;
+      font-weight: 800;
+      border: 3px solid var(--gold);
+    }
+
+    h1 {
+      margin: 15px 0 5px;
+      font-size: 29px;
+      color: var(--purple);
+    }
+
+    .tag {
+      margin: 0 0 24px;
+      color: #806120;
+      font-weight: 700;
+    }
+
+    a,
+    button {
+      width: 100%;
+      border: 0;
+      border-radius: 14px;
+      padding: 16px;
+      margin: 7px 0;
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      display: block;
+      cursor: pointer;
+    }
+
+    .website {
+      background: var(--purple);
+      color: #fff;
+    }
+
+    .whatsapp {
+      background: #1fae5a;
+      color: #fff;
+    }
+
+    .call {
+      background: var(--gold);
+      color: #21113f;
+    }
+
+    #numbers {
+      display: none;
+      margin-top: 8px;
+      background: var(--cream);
+      border-radius: 14px;
+      padding: 8px;
+    }
+
+    #numbers.show {
+      display: block;
+    }
+
+    #numbers a {
+      background: #fff;
+      color: var(--purple);
+      border: 1px solid #e5d6b2;
+      padding: 13px;
+    }
+
+    small {
+      display: block;
+      margin-top: 20px;
+      color: #6d6680;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="mark">N</div>
+
+    <h1>NISHKA</h1>
+    <p class="tag">Bridging Businesses &amp; Homemakers</p>
+
+    <a class="website" href="https://nishkaapp.com/">
+      1. Visit Our Website
+    </a>
+
+    <a class="whatsapp"
+       href="https://wa.me/919620001407?text=Hello%20Nishka%2C%20I%20want%20to%20join%20the%20homemaker%20onboarding.">
+      2. Join WhatsApp Onboarding
+    </a>
+
+    <button class="call"
+            type="button"
+            aria-expanded="false"
+            aria-controls="numbers"
+            onclick="toggleNumbers(this)">
+      3. Call for Enquiry
+    </button>
+
+    <div id="numbers">
+      <a href="tel:+918431276990">+91 84312 76990</a>
+      <a href="tel:+919742187978">+91 97421 87978</a>
+      <a href="tel:+919390408785">+91 93904 08785</a>
+      <a href="tel:+919590159433">+91 95901 59433</a>
+    </div>
+
+    <small>
+      A brand of Avenza Solutions Private Limited<br>
+      Real Tasks. Real Work. Real Earnings.
+    </small>
+  </main>
+
+  <script>
+    function toggleNumbers(button) {
+      const numbers = document.getElementById("numbers");
+      const open = numbers.classList.toggle("show");
+      button.setAttribute("aria-expanded", String(open));
+    }
+  </script>
+</body>
+</html>
