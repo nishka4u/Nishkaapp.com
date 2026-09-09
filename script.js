@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       data.source_page = document.title;
 
       if (button) { button.disabled = true; button.textContent = "Sending…"; }
+      form.setAttribute("aria-busy", "true");
       if (status) { status.className = "form-status"; status.textContent = ""; }
 
       try {
@@ -53,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         if (status) {
           status.className = "success form-status";
-          status.textContent = "Thank you. Your information has been submitted successfully. Our team will contact you regarding the next steps.";
+          status.textContent = "Thank you. Your request was sent to Nishka. Our team will review it and contact you using the details provided.";
         }
         form.reset();
       } catch (err) {
@@ -63,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       } finally {
         if (button) { button.disabled = false; button.textContent = original; }
+        form.removeAttribute("aria-busy");
       }
     });
   });
@@ -82,3 +84,25 @@ function switchLanguage(lang) {
   });
 }
 
+// Load chat after the main page has had time to render, or sooner after user interaction.
+function loadHubspotChat() {
+  if (document.getElementById("hs-script-loader")) return;
+  const script = document.createElement("script");
+  script.id = "hs-script-loader";
+  script.async = true;
+  script.defer = true;
+  script.src = "https://js-na2.hs-scripts.com/247051128.js";
+  document.body.appendChild(script);
+}
+
+if (document.body.dataset.chat === "enabled") {
+  window.addEventListener("load", () => {
+    const timer = window.setTimeout(loadHubspotChat, 8000);
+    ["pointerdown", "keydown", "scroll"].forEach(eventName => {
+      window.addEventListener(eventName, () => {
+        window.clearTimeout(timer);
+        loadHubspotChat();
+      }, {once:true, passive:true});
+    });
+  });
+}
