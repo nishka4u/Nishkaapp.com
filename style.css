@@ -914,3 +914,8 @@ body:has(.about-values-section) .about-values-section .opportunity-card p{
  .home-reference-logo .logo-word strong{font-size:1rem}
  .home-reference-logo .logo-word small{font-size:.55rem;max-width:130px}
 }
+
+/* Nishka full brand lockup in the homepage header */
+.home-reference-logo{width:190px;height:68px;min-width:190px;flex:0 0 190px;overflow:visible;gap:0}
+.home-reference-logo img{display:block;width:190px;height:68px;max-width:none;object-fit:contain;flex:0 0 190px}
+@media(max-width:760px){.home-reference-logo{width:145px;height:52px;min-width:145px;flex:0 0 145px}.home-reference-logo img{width:145px;height:52px;flex:0 0 145px}}
