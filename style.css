@@ -235,3 +235,43 @@ body:has(.business-quote-section) main>.section.section-tint:not(.business-quote
 .faq-reference-list details[open] summary:before{content:"▾"}
 .faq-reference-list details p{padding:0 18px 16px 30px;margin:0;color:#665b6c;font-size:13px;line-height:1.6}
 @media(max-width:640px){.faq-reference-section{padding:25px 15px 42px;min-height:0}.faq-reference-heading h2{font-size:27px}.faq-reference-list summary{padding:15px 15px 15px 29px}}
+
+
+/* Homemaker opportunity page — matched to supplied Pomelli screenshot */
+.homemaker-opportunity{background:#f5ebf7;min-height:100vh;padding:0 0 64px}
+.homemaker-opportunity-inner{width:min(894px,92%);margin:0 auto}
+.homemaker-opportunity-heading{text-align:center;padding:0 0 42px}
+.homemaker-opportunity-heading h1{margin:0;color:#21152a;font-size:32px;line-height:1.15;font-weight:800;letter-spacing:-.03em}
+.homemaker-opportunity-heading p{max-width:590px;margin:12px auto 0;color:#62556a;font-size:13px;line-height:1.65}
+.homemaker-important{display:flex;gap:16px;align-items:flex-start;background:#fff;border-left:3px solid #d4a43a;border-radius:7px;padding:18px 22px 17px;box-shadow:0 5px 16px rgba(42,34,48,.045);margin-bottom:36px}
+.homemaker-info-icon{width:21px;height:21px;flex:0 0 21px;display:grid;place-items:center;border-radius:50%;background:#d4a43a;color:#fff;font-weight:900;font-size:14px;margin-top:2px}
+.homemaker-important strong{display:block;color:#21152a;font-size:13px;line-height:1.4;margin-bottom:3px}
+.homemaker-important p{margin:0;color:#665b6c;font-size:11.5px;line-height:1.65}
+.homemaker-process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-bottom:48px}
+.homemaker-process-card{min-width:0;min-height:191px;padding:24px 17px 22px;background:#fff;border:1px solid #e4d4e9;border-radius:9px;box-shadow:0 4px 13px rgba(42,34,48,.035)}
+.homemaker-process-card>span{display:grid;place-items:center;width:33px;height:33px;border-radius:50%;background:#78368f;color:#fff;font-weight:800;font-size:14px;margin-bottom:15px}
+.homemaker-process-card h2{font-size:13px;line-height:1.3;color:#21152a;margin:0 0 8px;font-weight:800}
+.homemaker-process-card p{font-size:11.5px;line-height:1.55;color:#665b6c;margin:0}
+.homemaker-register{width:min(600px,100%);margin:0 auto;padding:34px 30px 32px;border:1px solid #e4d4e9;border-radius:16px;background:#fff;box-shadow:0 8px 24px rgba(42,34,48,.055)}
+.homemaker-register-heading{text-align:center;margin:0 0 31px}
+.homemaker-register-heading .kicker{display:block;font-size:10px;font-weight:900;letter-spacing:.12em;color:#74368c;margin-bottom:9px}
+.homemaker-register-heading h2{margin:0 0 8px;color:#21152a;font-size:22px;line-height:1.25;letter-spacing:-.025em}
+.homemaker-register-heading p{margin:0;color:#665b6c;font-size:12px;line-height:1.6}
+.homemaker-reference-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 18px}
+.homemaker-reference-form .field{display:flex;flex-direction:column;gap:7px;min-width:0}
+.homemaker-reference-form .field>label,.homemaker-reference-form legend{font-size:10.5px;font-weight:700;color:#21152a}
+.homemaker-reference-form .field label b,.homemaker-reference-form legend b{color:#b23c48}
+.homemaker-reference-form input:not([type=checkbox]),.homemaker-reference-form select,.homemaker-reference-form textarea{width:100%;min-width:0;border:1px solid #e2d1e9;border-radius:6px;background:#fff;color:#281d30;padding:10px 12px;font:inherit;font-size:11px;height:37px;outline:none}
+.homemaker-reference-form textarea{height:auto;min-height:75px;resize:vertical}
+.homemaker-reference-form input:focus,.homemaker-reference-form select:focus,.homemaker-reference-form textarea:focus{border-color:#74368c;box-shadow:0 0 0 2px #74368c18}
+.homemaker-reference-form .field.full{grid-column:1/-1}
+.homemaker-preferences{margin:0;padding:0;border:0;min-width:0}
+.homemaker-preferences legend{padding:0 0 9px}
+.homemaker-preference-options{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 12px;border:1px solid #e2d1e9;border-radius:6px;padding:12px 10px}
+.homemaker-preference-options label{display:flex;align-items:center;gap:6px;color:#34273a;font-size:10.5px;line-height:1.4;white-space:nowrap}
+.homemaker-preference-options input{width:13px;height:13px;margin:0;accent-color:#74368c;flex:0 0 auto}
+.homemaker-form-note{font-size:10px;line-height:1.5;color:#786b7e;margin:18px 0 12px}
+.homemaker-reference-form>.btn{width:100%;min-height:38px;margin-top:4px;font-size:12px;border-radius:6px}
+.homemaker-reference-form .form-status{font-size:12px;margin-top:10px}
+@media(max-width:900px){.homemaker-process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.homemaker-process-card{min-height:160px}.homemaker-opportunity-heading{padding-bottom:30px}}
+@media(max-width:640px){.homemaker-opportunity{padding-bottom:36px}.homemaker-opportunity-heading h1{font-size:28px}.homemaker-opportunity-heading p{font-size:12px}.homemaker-important{padding:15px 14px;gap:10px;margin-bottom:22px}.homemaker-process-grid{gap:12px;margin-bottom:28px}.homemaker-process-card{padding:17px 13px;min-height:0}.homemaker-process-card p{font-size:11px}.homemaker-register{padding:25px 18px;border-radius:12px}.homemaker-register-heading h2{font-size:20px}.homemaker-reference-grid{grid-template-columns:1fr;gap:14px}.homemaker-reference-form .field.full{grid-column:auto}.homemaker-preference-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.homemaker-preference-options label{white-space:normal}}
