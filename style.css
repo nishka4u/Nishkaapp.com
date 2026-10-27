@@ -584,3 +584,38 @@ body:has(.business-quote-section) .business-quote-section{display:block}
  .homemaker-opportunity .homemaker-preference-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
  .homemaker-opportunity .homemaker-preference-options label{font-size:12px}
 }
+
+
+/* About Nishka screenshot — hero reference match */
+body:has(main .page-hero .about-company-note) .page-hero{
+  padding:104px 0 30px;background:#fff;position:relative
+}
+body:has(main .page-hero .about-company-note) .page-hero:before{
+  content:"";position:absolute;left:0;right:0;top:-1px;height:64px;background:#f5ebf7;border-bottom:1px solid #e5d7e9;transform:translateY(-100%)
+}
+body:has(main .page-hero .about-company-note) .page-hero-grid{
+  width:min(1430px,calc(100% - 90px));grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:70px;align-items:center
+}
+body:has(main .page-hero .about-company-note) .page-hero .eyebrow{
+  display:block;margin:0 0 16px;color:#74368c;font-size:17px;font-weight:850;letter-spacing:.12em;text-transform:uppercase
+}
+body:has(main .page-hero .about-company-note) .page-hero h1{
+  max-width:700px;margin:0 0 25px;color:#21152a;font-size:clamp(2.7rem,3.3vw,3.2rem);line-height:1.3;letter-spacing:-.025em
+}
+body:has(main .page-hero .about-company-note) .page-hero .lead{
+  max-width:690px;margin:0 0 24px;color:#665b6c;font-size:21px;line-height:1.55
+}
+body:has(main .page-hero .about-company-note) .page-hero .about-second-paragraph{margin-top:24px}
+body:has(main .page-hero .about-company-note) .page-hero .about-company-note{
+  display:inline-block;margin-top:12px;padding:13px 22px;border-left:4px solid #d4a43a;border-radius:0 9px 9px 0;background:#fff4dd;color:#21152a;font-size:18px;font-weight:800;line-height:1.5
+}
+body:has(main .page-hero .about-company-note) .page-hero-image{
+  height:452px;border:0;border-radius:16px;object-fit:cover;object-position:center;box-shadow:0 12px 30px rgba(42,34,48,.09)
+}
+@media(max-width:850px){
+ body:has(main .page-hero .about-company-note) .page-hero{padding:60px 0 35px}
+ body:has(main .page-hero .about-company-note) .page-hero-grid{width:min(92%,700px);grid-template-columns:1fr;gap:28px}
+ body:has(main .page-hero .about-company-note) .page-hero h1{font-size:clamp(2.25rem,6vw,3rem)}
+ body:has(main .page-hero .about-company-note) .page-hero .lead{font-size:17px}
+ body:has(main .page-hero .about-company-note) .page-hero-image{height:330px}
+}
