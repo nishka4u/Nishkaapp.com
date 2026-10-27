@@ -925,3 +925,9 @@ body:has(> main#main-content .hero) .home-reference-logo{width:168px;height:60px
 body:has(> main#main-content .hero) .home-reference-logo img{display:block;width:168px;height:60px;max-width:168px;object-fit:contain;object-position:left center;flex:0 0 168px}
 @media(max-width:1000px){body:has(> main#main-content .hero) .home-reference-logo{width:145px;height:52px;min-width:145px;flex-basis:145px}body:has(> main#main-content .hero) .home-reference-logo img{width:145px;height:52px;max-width:145px;flex-basis:145px}}
 @media(max-width:760px){body:has(> main#main-content .hero) .home-reference-logo{width:125px;height:46px;min-width:125px;flex-basis:125px}body:has(> main#main-content .hero) .home-reference-logo img{width:125px;height:46px;max-width:125px;flex-basis:125px}}
+
+/* Balanced horizontal Nishka brand lockup */
+body:has(> main#main-content .hero) .home-reference-logo{width:205px;height:56px;min-width:205px;flex:0 0 205px;margin:0;display:flex;align-items:center;justify-content:flex-start;overflow:visible}
+body:has(> main#main-content .hero) .home-reference-logo img{display:block;width:205px;height:56px;max-width:205px;object-fit:contain;object-position:left center;flex:0 0 205px}
+@media(max-width:1000px){body:has(> main#main-content .hero) .home-reference-logo{width:165px;height:48px;min-width:165px;flex-basis:165px}body:has(> main#main-content .hero) .home-reference-logo img{width:165px;height:48px;max-width:165px;flex-basis:165px}}
+@media(max-width:760px){body:has(> main#main-content .hero) .home-reference-logo{width:132px;height:40px;min-width:132px;flex-basis:132px}body:has(> main#main-content .hero) .home-reference-logo img{width:132px;height:40px;max-width:132px;flex-basis:132px}}
