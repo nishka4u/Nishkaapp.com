@@ -28,7 +28,20 @@ document.addEventListener("DOMContentLoaded", () => {
       const status = form.querySelector(".form-status");
       const button = form.querySelector('button[type="submit"]');
       const original = button ? button.textContent : "";
-      const data = Object.fromEntries(new FormData(form).entries());
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      // Preserve every selected option for multi-select checkbox groups.
+      const workTypes = formData.getAll("work_types");
+      if (workTypes.length) data.work_types = workTypes.join(", ");
+      if (form.dataset.form === "business" && workTypes.length === 0) {
+        const group = form.querySelector('input[name="work_types"]')?.closest("fieldset");
+        if (status) {
+          status.className = "form-status error";
+          status.textContent = currentLanguage === "kn" ? "ದಯವಿಟ್ಟು ಕನಿಷ್ಠ ಒಂದು ಕೆಲಸದ ಪ್ರಕಾರವನ್ನು ಆಯ್ಕೆಮಾಡಿ." : "Please select at least one type of work required.";
+        }
+        group?.querySelector("input")?.focus();
+        return;
+      }
       data.form_type = form.dataset.form || "general";
       data.source_page = document.title;
       if (button) { button.disabled = true; button.textContent = currentLanguage === "kn" ? "ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ…" : "Sending…"; }
