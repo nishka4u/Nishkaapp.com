@@ -47,112 +47,33 @@
 .faq-groups{max-width:960px;margin:0 auto}.faq-group{margin:28px 0 36px}.faq-group>h3{font-size:1.05rem;margin:0 0 14px;color:var(--ink)}.faq-list{display:grid;gap:8px}.faq-list details{border:1px solid var(--border);border-radius:6px;background:#fff;overflow:hidden}.faq-list summary{padding:14px 16px;font-size:.9rem;font-weight:750;color:var(--ink);cursor:pointer;list-style:disclosure-closed}.faq-list details[open] summary{background:#f4eaf7;color:var(--purple);list-style:disclosure-open}.faq-list details p{margin:0;padding:14px 16px 16px;font-size:.85rem;line-height:1.6;color:var(--muted)}.site-header .logo img{width:52px;height:52px;object-fit:contain;background:#fff}
 
 
-/* Homepage hero — match the supplied first-page screenshot at desktop size */
+/* Homepage hero — calibrated to the first supplied screenshot */
 @media (min-width: 761px) {
-  .hero {
-    padding: 72px 0 24px;
-    background: linear-gradient(112deg, #faf6fb 0%, #fff 58%, #fff8ea 100%);
-  }
-  .hero .container {
-    width: calc(100% - 76px);
-    max-width: 1192px;
-    margin-left: 38px;
-    margin-right: auto;
-  }
-  .hero-grid {
-    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-    align-items: center;
-    gap: 56px;
-  }
+  .hero { padding: 72px 0 24px; background: linear-gradient(112deg,#faf6fb 0%,#fff 58%,#fff8ea 100%); }
+  .hero .container { width: min(1244px, calc(100% - 76px)); max-width: none; margin: 0 auto; }
+  .hero-grid { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); align-items: center; gap: 56px; }
   .hero-copy { min-width: 0; }
-  .eyebrow {
-    margin-bottom: 22px;
-    padding: 9px 16px;
-    font-size: 14px;
-  }
-  .hero h1 {
-    max-width: 680px;
-    margin: 0 0 22px;
-    font-size: 60px;
-    line-height: 1.25;
-    letter-spacing: -1.8px;
-    font-weight: 800;
-  }
-  .hero .lead {
-    max-width: 655px;
-    margin: 0 0 20px;
-    font-size: 18px;
-    line-height: 1.65;
-  }
-  .hero .tagline {
-    margin: 20px 0 32px;
-    padding: 9px 14px;
-    border-left-width: 4px;
-    border-radius: 8px;
-    font-size: 16px;
-    line-height: 1.55;
-  }
-  .hero .hero-actions {
-    gap: 16px;
-    margin-top: 0;
-  }
-  .hero .hero-actions .btn {
-    min-height: 54px;
-    padding: 14px 24px;
-    border-radius: 8px;
-    font-size: 16px;
-  }
-  .hero .hero-proof {
-    gap: 9px;
-    align-items: center;
-    margin-top: 31px;
-    padding-top: 20px;
-    border-top: 1px solid #e8d9ed;
-    color: #211a28;
-    font-size: 14px;
-    font-weight: 650;
-    white-space: nowrap;
-  }
-  .hero .hero-proof span:first-child,
-  .hero .hero-proof span:nth-of-type(4),
-  .hero .hero-proof span:nth-of-type(7) {
-    color: var(--purple);
-    font-weight: 900;
-  }
-  .hero .hero-proof .proof-separator {
-    color: #b6a7bd;
-    margin: 0 2px;
-  }
-  .hero-media {
-    padding: 0 0 22px;
-  }
-  .hero-photo {
-    display: block;
-    width: 100%;
-    height: 272px;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 1px solid #e8d9ed;
-    box-shadow: 0 16px 36px rgba(42, 34, 48, .08);
-  }
-  .hero .floating-card {
-    left: -20px;
-    bottom: 0;
-    width: 300px;
-    padding: 18px 20px;
-    gap: 12px;
-    border-radius: 12px;
-  }
-  .hero .floating-mark {
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
-    font-size: 14px;
-  }
-  .hero .floating-card strong { font-size: 14px; }
-  .hero .floating-card p { font-size: 13px; line-height: 1.55; }
+  .hero .eyebrow { margin: 0 0 22px; padding: 9px 16px; font-size: 14px; }
+  .hero h1 { max-width: 680px; margin: 0 0 22px; font-size: 60px; line-height: 1.25; letter-spacing: -1.8px; font-weight: 800; }
+  .hero .lead { max-width: 655px; margin: 0 0 20px; font-size: 18px; line-height: 1.65; }
+  .hero .tagline { margin: 20px 0 32px; padding: 9px 14px; border-left-width: 4px; border-radius: 8px; font-size: 16px; line-height: 1.55; }
+  .hero .hero-actions { gap: 16px; margin-top: 0; }
+  .hero .hero-actions .btn { min-height: 54px; padding: 14px 24px; border-radius: 8px; font-size: 16px; }
+  .hero .hero-proof { display:flex; flex-wrap:nowrap; gap:9px; align-items:center; margin-top:31px; padding-top:20px; border-top:1px solid #e8d9ed; color:#211a28; font-size:14px; font-weight:650; white-space:nowrap; }
+  .hero .hero-proof span:nth-child(odd) { color:var(--purple); font-weight:900; }
+  .hero .hero-proof .proof-separator { color:#b6a7bd; margin:0 2px; }
+  .hero-media { min-width:0; padding:0 0 22px; position:relative; }
+  .hero-photo { display:block; width:100%; height:272px; object-fit:cover; border-radius:12px; border:1px solid #e8d9ed; box-shadow:0 16px 36px rgba(42,34,48,.08); }
+  .hero .floating-card { left:-20px; bottom:0; width:300px; padding:18px 20px; gap:12px; border-radius:12px; }
+  .hero .floating-mark { width:30px; height:30px; border-radius:8px; font-size:14px; }
+  .hero .floating-card strong { font-size:14px; }
+  .hero .floating-card p { font-size:13px; line-height:1.55; }
 }
-
+@media (min-width: 761px) and (max-width: 1100px) {
+  .hero h1 { font-size: clamp(42px, 5vw, 54px); }
+  .hero-grid { gap: 34px; }
+  .hero .hero-proof { font-size: 12px; gap: 6px; }
+}
 
 /* Screenshot 2 — structured work coordination section */
 @media (min-width: 761px) {
