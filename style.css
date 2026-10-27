@@ -735,3 +735,35 @@ body:has(.about-values-section) .about-values-section .opportunity-card p{
  body:has(.about-values-section) .about-values-section .values-grid{grid-template-columns:1fr !important;gap:14px !important}
  body:has(.about-values-section) .about-values-section .opportunity-card{min-height:0 !important;padding:22px !important}
 }
+
+
+/* Exact reference layout — How Nishka Operates */
+.workflow-screenshot-section{background:#f7f1f8;padding:0 0 32px}
+.workflow-screenshot-section>.container{width:min(1180px,94%)}
+.workflow-screenshot-section .section-head{text-align:center;max-width:760px;margin:0 auto 40px;padding-top:0}
+.workflow-screenshot-section .section-head .kicker{display:block;margin:0 0 10px;color:#74368c;font-size:11px;font-weight:850;letter-spacing:.13em;text-transform:uppercase}
+.workflow-screenshot-section .section-head h2{margin:0 0 10px;color:#21152a;font-size:32px;line-height:1.25;letter-spacing:-.02em}
+.workflow-screenshot-section .section-head p{margin:0 auto;color:#665b6c;font-size:13px;line-height:1.6}
+.workflow-screenshot-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.workflow-screenshot-visual{padding:12px;border:1px solid #e5d5eb;border-radius:9px;background:#fff;box-shadow:0 4px 14px rgba(42,34,48,.05)}
+.workflow-screenshot-visual img{display:block;width:100%;height:auto;aspect-ratio:1.18;object-fit:contain;border-radius:5px}
+.workflow-screenshot-steps{display:grid;gap:17px}
+.workflow-screenshot-step{display:grid;grid-template-columns:26px minmax(0,1fr);gap:12px;align-items:start;min-height:86px;padding:17px 18px;border-left:3px solid #84399a;border-radius:10px;background:#fff;box-shadow:0 4px 14px rgba(42,34,48,.045)}
+.workflow-screenshot-step>span{color:#74368c;font-size:16px;font-weight:850;line-height:1.35}
+.workflow-screenshot-step h3{margin:0 0 4px;color:#21152a;font-size:13px;line-height:1.35;font-weight:800}
+.workflow-screenshot-step p{margin:0;color:#665b6c;font-size:11px;line-height:1.55}
+@media(min-width:1100px){
+ .workflow-screenshot-section{min-height:calc(100vh - 68px)}
+ .workflow-screenshot-layout{grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:48px}
+}
+@media(max-width:760px){
+ .workflow-screenshot-section{padding:26px 0}
+ .workflow-screenshot-section .section-head{margin-bottom:26px}
+ .workflow-screenshot-section .section-head h2{font-size:28px}
+ .workflow-screenshot-desktop-break{display:none}
+ .workflow-screenshot-layout{grid-template-columns:1fr;gap:22px}
+ .workflow-screenshot-steps{gap:12px}
+ .workflow-screenshot-step{min-height:0;padding:15px}
+ .workflow-screenshot-step h3{font-size:14px}
+ .workflow-screenshot-step p{font-size:12px}
+}
