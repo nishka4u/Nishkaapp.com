@@ -864,3 +864,36 @@ body:has(.about-values-section) .about-values-section .opportunity-card p{
 .contact-reference-submit{display:flex;width:100%;justify-content:center;align-items:center;min-height:36px;margin-top:9px;padding:10px 12px;border:0;border-radius:6px;background:#74368c;color:#fff;font-size:11px;font-weight:800;cursor:pointer;box-shadow:0 5px 12px rgba(116,54,140,.2)}
 .contact-reference-form-note{margin:8px 0 0;color:#665b6c;font-size:10px;line-height:1.5}
 @media(max-width:720px){.contact-reference-section{padding:36px 0 24px}.contact-reference-section>.container{width:calc(100% - 30px)}.contact-reference-section .section-head{margin-bottom:28px}.contact-reference-section .section-head h2{font-size:26px}.contact-reference-grid{grid-template-columns:1fr;gap:24px}.contact-reference-form{padding:22px 18px}.contact-reference-tile{min-height:0}}
+
+
+/* Footer — final screenshot reference */
+.footer-reference{background:#2a2230!important;color:#f8f2fa!important;padding:8px 0 24px!important}
+.footer-reference>.container{width:calc(100% - 76px)!important;max-width:1440px!important}
+.footer-reference .footer-grid{display:grid!important;grid-template-columns:minmax(0,1.7fr) minmax(0,.85fr) minmax(0,.85fr) minmax(0,1.2fr)!important;gap:36px!important;padding:0 0 48px!important;align-items:start!important}
+.footer-reference .footer-brand-column{min-width:0}
+.footer-reference .footer-logo-link{display:flex;align-items:center;justify-content:center;width:50px;height:50px;margin:0 0 30px;background:#f7f4f7;text-decoration:none}
+.footer-reference .footer-logo-link img{display:block;width:46px;height:46px;object-fit:contain}
+.footer-reference .footer-brand-column p{margin:0 0 18px;color:#f4edf6;font-size:16px;line-height:1.65}
+.footer-reference .footer-brand-column .footer-tagline{color:#e2ad2e;margin-top:12px}
+.footer-reference .footer-grid h3{margin:0 0 24px;color:#fff;font-size:19px;line-height:1.3;font-weight:800}
+.footer-reference .footer-grid>div:not(.footer-brand-column)>a,.footer-reference .footer-grid>div:not(.footer-brand-column)>span:not(.footer-contact-line){display:block;margin:0 0 17px;color:#f4edf6;font-size:16px;line-height:1.4;text-decoration:none}
+.footer-reference .footer-grid a:hover{text-decoration:underline}
+.footer-reference .footer-contact-line{display:flex!important;align-items:flex-start;gap:12px;margin:0 0 16px;color:#f4edf6;font-size:16px;line-height:1.5;text-decoration:none}
+.footer-reference .footer-contact-line b{flex:0 0 17px;color:#d4a43a;font-size:17px;font-weight:800}
+.footer-reference .footer-policy{padding:25px 27px 26px;border:1px solid #514655;border-radius:9px;background:#332b38;margin-bottom:0}
+.footer-reference .footer-policy h3{margin:0 0 10px;color:#e2ad2e;font-size:17px;font-weight:800}
+.footer-reference .footer-policy p{margin:0;color:#8c8194;font-size:18px;line-height:1.65}
+.footer-reference .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:36px;margin-top:0;border-top:1px solid #4b414f;color:#cfc5d5;font-size:15px;line-height:1.5}
+.footer-reference .footer-bottom>div{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.footer-reference .footer-bottom a{color:#cfc5d5;text-decoration:none}
+.footer-reference .footer-bottom a:hover{text-decoration:underline}
+@media(max-width:850px){
+ .footer-reference>.container{width:calc(100% - 40px)!important}
+ .footer-reference .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:28px!important;padding-bottom:30px!important}
+ .footer-reference .footer-brand-column p{font-size:14px}
+ .footer-reference .footer-grid h3{font-size:17px;margin-bottom:16px}
+ .footer-reference .footer-grid>div:not(.footer-brand-column)>a,.footer-reference .footer-grid>div:not(.footer-brand-column)>span:not(.footer-contact-line),.footer-reference .footer-contact-line{font-size:14px}
+ .footer-reference .footer-policy p{font-size:15px}
+ .footer-reference .footer-bottom{align-items:flex-start;flex-direction:column;padding-top:24px;font-size:13px}
+}
+@media(max-width:520px){.footer-reference .footer-grid{grid-template-columns:1fr!important}.footer-reference .footer-logo-link{margin-bottom:18px}.footer-reference .footer-policy{padding:19px}.footer-reference .footer-policy p{font-size:14px}}
