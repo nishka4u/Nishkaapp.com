@@ -633,3 +633,9 @@ body:has(.about-values-section) .about-values-section .opportunity-card h3{margi
 body:has(.about-values-section) .about-values-section .opportunity-card p{margin:0;color:#665b6c;font-size:15px;line-height:1.58}
 @media(max-width:1000px){body:has(.about-values-section) .about-values-section .values-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}body:has(.about-values-section) .about-values-section .opportunity-card{min-height:230px;padding:26px 22px}}
 @media(max-width:560px){body:has(.about-values-section) .about-values-section{padding:22px 0}body:has(.about-values-section) .about-values-section .section-head{margin-bottom:24px}body:has(.about-values-section) .about-values-section .section-head h2{font-size:30px}body:has(.about-values-section) .about-values-section .values-grid{grid-template-columns:1fr;gap:14px}body:has(.about-values-section) .about-values-section .opportunity-card{min-height:0;padding:22px}}
+
+
+/* Brand values reference icons: preserve exact six-card layout */
+body:has(.about-values-section) .about-values-section .card-icon svg{display:block;width:27px;height:27px;flex:0 0 27px}
+body:has(.about-values-section) .about-values-section .values-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+body:has(.about-values-section) .about-values-section .opportunity-card{min-height:278px}
