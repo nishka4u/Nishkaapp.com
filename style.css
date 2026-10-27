@@ -456,3 +456,55 @@ body:has(.business-quote-section) main>.section.section-tint:not(.business-quote
 .business-reference-logo img{width:40px;height:40px;object-fit:contain}
 @media(min-width:761px){body:has(.business-quote-section) .nav{min-height:76px;gap:16px}body:has(.business-quote-section) .nav-links{gap:clamp(10px,1.15vw,18px)}body:has(.business-quote-section) .nav-links a{font-size:.78rem}body:has(.business-quote-section) .nav-actions .btn{padding:9px 16px;font-size:.78rem}body:has(.business-quote-section) .lang-switch{gap:7px;padding:4px 9px;font-size:.72rem}body:has(.business-quote-section) .business-quote-card{width:min(calc(100% - 40px),720px);padding:18px 30px 28px}}
 @media(max-width:760px){.business-reference-logo{margin-right:auto}body:has(.business-quote-section) .business-quote-card{width:calc(100% - 24px);padding:20px 18px 24px}body:has(.business-quote-section) .business-quote-form .form-grid{grid-template-columns:1fr;gap:14px}body:has(.business-quote-section) .business-quote-form .field.full{grid-column:auto}body:has(.business-quote-section) .work-type-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+
+/* Third supplied reference image — Merchant Solutions service cards */
+body:has(.business-quote-section) .business-quote-section{display:none}
+body:has(.business-quote-section) main>.page-hero,
+body:has(.business-quote-section) main>.section.section-tint{display:none}
+body:has(.business-quote-section) main>.merchant-solutions{display:block;padding:22px 0 34px;background:#fff}
+body:has(.business-quote-section) .merchant-solutions>.container{width:min(92%,1120px)}
+body:has(.business-quote-section) .merchant-solutions .section-head{
+  max-width:510px;margin:0 auto 27px;text-align:center
+}
+body:has(.business-quote-section) .merchant-solutions .section-head .kicker{
+  display:block;margin:0 0 6px;font-size:8px;letter-spacing:.14em;line-height:1.4;color:#74368c
+}
+body:has(.business-quote-section) .merchant-solutions .section-head h2{
+  margin:0 auto 8px;font-size:clamp(19px,2.8vw,22px);line-height:1.22;letter-spacing:-.025em;color:#20162a
+}
+body:has(.business-quote-section) .merchant-solutions .section-head p{
+  margin:0 auto;color:#665b6c;font-size:9px;line-height:1.55;max-width:490px
+}
+body:has(.business-quote-section) .merchant-solutions .service-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px
+}
+body:has(.business-quote-section) .merchant-solutions .service-card{
+  display:flex;flex-direction:column;min-width:0;overflow:hidden;border:1px solid #e5d5eb;border-radius:7px;background:#fff;box-shadow:0 3px 10px rgba(42,34,48,.06)
+}
+body:has(.business-quote-section) .merchant-solutions .service-card img{
+  display:block;width:100%;height:110px;object-fit:cover
+}
+body:has(.business-quote-section) .merchant-solutions .service-card>div{position:relative;flex:1;padding:13px 13px 14px}
+body:has(.business-quote-section) .merchant-solutions .service-card h3{
+  display:flex;align-items:center;gap:5px;margin:0 0 8px;font-size:10px;line-height:1.35;color:#21152a
+}
+body:has(.business-quote-section) .merchant-solutions .service-card p{
+  margin:0;color:#665b6c;font-size:8px;line-height:1.5
+}
+body:has(.business-quote-section) .merchant-solutions .service-icon{
+  display:inline-flex;align-items:center;justify-content:center;flex:0 0 20px;width:20px;height:20px;margin-left:auto;border-radius:50%;background:#f4ecf6;color:#74368c;font-size:9px
+}
+@media(min-width:1000px){
+  body:has(.business-quote-section) .merchant-solutions>.container{width:min(92%,1120px)}
+  body:has(.business-quote-section) .merchant-solutions .service-card img{height:150px}
+  body:has(.business-quote-section) .merchant-solutions .service-card>div{padding:16px}
+  body:has(.business-quote-section) .merchant-solutions .service-card h3{font-size:14px}
+  body:has(.business-quote-section) .merchant-solutions .service-card p{font-size:11px}
+}
+@media(max-width:520px){
+  body:has(.business-quote-section) .merchant-solutions .service-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  body:has(.business-quote-section) .merchant-solutions .service-card img{height:100px}
+  body:has(.business-quote-section) .merchant-solutions .service-card>div{padding:10px}
+  body:has(.business-quote-section) .merchant-solutions .service-card h3{font-size:10px}
+}
