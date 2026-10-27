@@ -1,15 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 150" role="img" aria-labelledby="title">
-<title id="title">Nishka — Bridging Businesses and Homemakers</title>
-<rect width="420" height="150" fill="#fff"/>
-<g transform="translate(12 8)">
-<path d="M18 48C18 25 43 17 59 34L96 72V36C96 19 109 7 126 7S156 20 156 37V96C156 120 130 129 113 111L76 73V106C76 123 64 135 47 135S18 123 18 106Z" fill="#64218B"/>
-<circle cx="46" cy="40" r="8" fill="#D4A43A"/>
-<path d="M26 46C39 66 55 61 69 53C54 66 48 78 66 89C83 99 97 82 111 88C123 94 132 111 146 104C153 100 156 91 154 85C144 93 134 88 123 78L105 63C94 54 84 61 74 68C61 77 47 65 39 55Z" fill="#D4A43A"/>
-<path d="M94 73C102 66 111 68 118 75L134 90C139 95 137 101 132 103C128 105 124 102 120 98L115 94C122 101 121 107 116 110C111 113 107 109 103 105C108 111 106 116 101 118C96 120 92 116 88 112" fill="none" stroke="#D4A43A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<text x="210" y="84" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" letter-spacing="4" fill="#64218B" text-anchor="middle">NISHKA</text>
-<circle cx="355" cy="69" r="4" fill="#D4A43A"/>
-<path d="M30 112H76M344 112H390" stroke="#D4A43A" stroke-width="1.5"/>
-<circle cx="80" cy="112" r="2.5" fill="#D4A43A"/><circle cx="340" cy="112" r="2.5" fill="#D4A43A"/>
-<text x="210" y="118" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#33223C" text-anchor="middle">Bridging <tspan fill="#D4A43A">Businesses</tspan> &amp; Homemakers.</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 112"><rect width="440" height="112" fill="#fff"/><g transform="translate(4 5)"><path d="M10 27C10 11 27 3 39 16L72 51V18C72 7 81 0 92 0S112 8 112 20V77C112 94 93 101 80 88L48 54V82C48 94 40 102 28 102S10 94 10 82Z" fill="#64218B"/><circle cx="31" cy="22" r="7" fill="#D4A43A"/><path d="M15 27C27 44 39 39 51 33C41 43 38 52 51 61C64 69 74 57 85 61C94 65 101 78 110 73C114 70 115 64 113 59C104 65 97 60 88 52L73 40C64 33 56 39 48 44C37 51 26 42 20 34Z" fill="#D4A43A"/><path d="M67 49C74 43 81 46 87 52L100 64C104 68 103 73 99 75C95 77 92 73 89 71L85 68C90 73 89 78 85 80C81 82 77 78 74 75C78 80 76 84 72 86C68 88 65 84 62 81" fill="none" stroke="#D4A43A" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></g><text x="130" y="56" font-family="Arial,Helvetica,sans-serif" font-size="48" font-weight="700" letter-spacing="3.5" fill="#64218B">NISHKA</text><circle cx="391" cy="39" r="3.5" fill="#D4A43A"/><path d="M132 70H169M384 70H420" stroke="#D4A43A" stroke-width="1.5"/><text x="276" y="88" font-family="Arial,Helvetica,sans-serif" font-size="15" text-anchor="middle" fill="#33223C">Bridging Businesses &amp; Homemakers.</text></svg>
