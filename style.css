@@ -508,3 +508,8 @@ body:has(.business-quote-section) .merchant-solutions .service-icon{
   body:has(.business-quote-section) .merchant-solutions .service-card>div{padding:10px}
   body:has(.business-quote-section) .merchant-solutions .service-card h3{font-size:10px}
 }
+
+
+/* Preserve the business quotation form exactly as the user's approved reference */
+body:has(.business-quote-section) main>.merchant-solutions{display:none}
+body:has(.business-quote-section) .business-quote-section{display:block}
