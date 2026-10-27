@@ -151,3 +151,6 @@
   .value-section .section-head { margin-bottom: 30px; }
   .value-section .section-head .kicker { color: #d9a82f; }
 }
+
+/* Screenshot 1: keep the three hero proof points; hide the duplicate four-item strip underneath */
+.trust-strip { display: none !important; }
