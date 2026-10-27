@@ -30,14 +30,20 @@ document.addEventListener("DOMContentLoaded", () => {
       const original = button ? button.textContent : "";
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
-      // Preserve every selected option for multi-select checkbox groups.
-      const workTypes = formData.getAll("work_types");
-      if (workTypes.length) data.work_types = workTypes.join(", ");
-      if (form.dataset.form === "business" && workTypes.length === 0) {
-        const group = form.querySelector('input[name="work_types"]')?.closest("fieldset");
+      // Preserve all selected values for checkbox groups.
+      for (const groupName of ["work_types", "work_preferences"]) {
+        const selected = formData.getAll(groupName);
+        if (selected.length) data[groupName] = selected.join(", ");
+      }
+      const preferenceGroup = form.querySelector('input[name="work_preferences"]')?.closest("fieldset");
+      const workTypeGroup = form.querySelector('input[name="work_types"]')?.closest("fieldset");
+      const missingBusinessWork = form.dataset.form === "business" && form.querySelector('input[name="work_types"]') && formData.getAll("work_types").length === 0;
+      const missingHomemakerWork = form.dataset.form === "homemaker" && preferenceGroup && formData.getAll("work_preferences").length === 0;
+      if (missingBusinessWork || missingHomemakerWork) {
+        const group = missingBusinessWork ? workTypeGroup : preferenceGroup;
         if (status) {
           status.className = "form-status error";
-          status.textContent = currentLanguage === "kn" ? "ದಯವಿಟ್ಟು ಕನಿಷ್ಠ ಒಂದು ಕೆಲಸದ ಪ್ರಕಾರವನ್ನು ಆಯ್ಕೆಮಾಡಿ." : "Please select at least one type of work required.";
+          status.textContent = currentLanguage === "kn" ? "ದಯವಿಟ್ಟು ಕನಿಷ್ಠ ಒಂದು ಕೆಲಸದ ಪ್ರಕಾರವನ್ನು ಆಯ್ಕೆಮಾಡಿ." : "Please select at least one work preference.";
         }
         group?.querySelector("input")?.focus();
         return;
