@@ -217,9 +217,9 @@
 @media(max-width:640px){.business-quote-card{width:100%;padding:22px 18px 25px}.business-quote-heading{margin-bottom:26px}.business-quote-heading h2{font-size:22px}.business-quote-form .form-grid{grid-template-columns:1fr;gap:15px}.business-quote-form .field.full{grid-column:auto}.work-type-options{grid-template-columns:repeat(2,minmax(0,1fr))}.work-type-options label{white-space:normal}}
 
 /* The Screenshot 4 reference opens directly on the quotation form */
-body:has(.business-quote-section) main>.page-hero,
-body:has(.business-quote-section) main>.merchant-solutions,
-body:has(.business-quote-section) main>.section.section-tint:not(.business-quote-section){display:none}
+body.businesses-page main>.page-hero,
+body.businesses-page main>.merchant-solutions,
+body.businesses-page main>.section.section-tint:not(.business-quote-section){display:none}
 
 /* Screenshot 5 — compact FAQ and footer transition */
 .faq-reference-section{background:#faf6fb;padding:24px 20px 60px;min-height:405px}
@@ -459,10 +459,10 @@ body:has(.business-quote-section) main>.section.section-tint:not(.business-quote
 
 
 /* Third supplied reference image — Merchant Solutions service cards */
-body:has(.business-quote-section) .business-quote-section{display:none}
-body:has(.business-quote-section) main>.page-hero,
-body:has(.business-quote-section) main>.section.section-tint{display:none}
-body:has(.business-quote-section) main>.merchant-solutions{display:block;padding:22px 0 34px;background:#fff}
+body.businesses-page .business-quote-section{display:none}
+body.businesses-page main>.page-hero,
+body.businesses-page main>.section.section-tint{display:none}
+body.businesses-page main>.merchant-solutions{display:block;padding:22px 0 34px;background:#fff}
 body:has(.business-quote-section) .merchant-solutions>.container{width:min(92%,1120px)}
 body:has(.business-quote-section) .merchant-solutions .section-head{
   max-width:510px;margin:0 auto 27px;text-align:center
@@ -511,8 +511,8 @@ body:has(.business-quote-section) .merchant-solutions .service-icon{
 
 
 /* Preserve the business quotation form exactly as the user's approved reference */
-body:has(.business-quote-section) main>.merchant-solutions{display:none}
-body:has(.business-quote-section) .business-quote-section{display:block}
+body.businesses-page main>.merchant-solutions{display:none}
+body.businesses-page .business-quote-section{display:block}
 
 
 /* Homemaker opportunity screenshot — approved first viewport */
