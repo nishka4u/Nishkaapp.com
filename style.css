@@ -897,3 +897,20 @@ body:has(.about-values-section) .about-values-section .opportunity-card p{
  .footer-reference .footer-bottom{align-items:flex-start;flex-direction:column;padding-top:24px;font-size:13px}
 }
 @media(max-width:520px){.footer-reference .footer-grid{grid-template-columns:1fr!important}.footer-reference .footer-logo-link{margin-bottom:18px}.footer-reference .footer-policy{padding:19px}.footer-reference .footer-policy p{font-size:14px}}
+
+/* Brand lockup and final polish — Nishka */
+.home-reference-logo{gap:10px;min-width:205px}
+.home-reference-logo img{width:46px;height:46px;object-fit:contain;flex:0 0 46px}
+.home-reference-logo .logo-word{gap:3px}
+.home-reference-logo .logo-word strong{font-size:1.18rem;letter-spacing:.12em;line-height:1;color:var(--purple)}
+.home-reference-logo .logo-word small{font-size:.62rem;line-height:1.25;font-weight:750;color:var(--gold);letter-spacing:0;white-space:normal;max-width:180px}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--purple);background:var(--lavender);border:1px solid var(--border);border-radius:999px;padding:7px 12px;font-size:.83rem;font-weight:800}
+.hero h1,.page-hero h1{overflow-wrap:normal;text-wrap:balance}
+.section-head h2,.business-quote-heading h2,.homemaker-register-heading h2{text-wrap:balance}
+.btn:focus-visible,.nav-links a:focus-visible,.logo:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+@media(max-width:640px){
+ .home-reference-logo{min-width:0;gap:7px}
+ .home-reference-logo img{width:36px;height:36px;flex-basis:36px}
+ .home-reference-logo .logo-word strong{font-size:1rem}
+ .home-reference-logo .logo-word small{font-size:.55rem;max-width:130px}
+}
