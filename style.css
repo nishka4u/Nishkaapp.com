@@ -189,3 +189,29 @@
  .merchant-solutions .service-card h3 { font-size:10px; }
  .merchant-solutions .service-card p { font-size:8px; }
 }
+
+
+/* Screenshot 4 — business quotation form */
+.business-quote-section{padding:0 0 0;background:#fff}
+.business-quote-card{width:min(100% - 40px,720px);margin:0 auto;background:linear-gradient(115deg,#f8f2fa 0%,#fff4e5 100%);border:1px solid #e5d5eb;border-top:0;border-radius:0 0 7px 7px;padding:18px 30px 28px;box-shadow:0 6px 18px rgba(42,34,48,.05)}
+.business-quote-heading{text-align:center;margin:0 auto 34px;max-width:650px}
+.business-quote-heading .kicker{display:block;font-size:11px;letter-spacing:.13em;margin:0 0 10px}
+.business-quote-heading h2{font-size:23px;line-height:1.25;letter-spacing:-.025em;margin:0 0 7px;color:#20162a}
+.business-quote-heading p{font-size:13px;line-height:1.55;color:#665b6c;margin:0 auto;max-width:620px}
+.business-quote-form .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px 18px}
+.business-quote-form .field{display:flex;flex-direction:column;min-width:0;gap:7px}
+.business-quote-form .field>label,.business-quote-form legend{font-size:11px;font-weight:700;color:#21152a}
+.business-quote-form .field label b,.business-quote-form legend b{color:#a13a52}
+.business-quote-form input:not([type=checkbox]),.business-quote-form select,.business-quote-form textarea{width:100%;min-width:0;border:1px solid #e2d1e9;border-radius:6px;background:#fff;color:#281d30;padding:10px 12px;font:inherit;font-size:12px;outline:none}
+.business-quote-form input:not([type=checkbox]),.business-quote-form select{height:37px}
+.business-quote-form textarea{min-height:83px;resize:vertical}
+.business-quote-form input:focus,.business-quote-form select:focus,.business-quote-form textarea:focus{border-color:#74368c;box-shadow:0 0 0 2px #74368c18}
+.business-quote-form .field.full{grid-column:1/-1}
+.business-quote-form .work-type-field{border:1px solid #e2d1e9;border-radius:6px;background:#fff;padding:10px 12px 12px;margin:0;min-width:0}
+.business-quote-form .work-type-field legend{padding:0 0 8px}
+.work-type-options{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 12px}
+.work-type-options label{display:flex;align-items:center;gap:6px;font-size:11px;color:#2b2130;white-space:nowrap}
+.work-type-options input{width:12px;height:12px;margin:0;accent-color:#74368c;flex:0 0 auto}
+.business-quote-form>.btn{width:100%;height:36px;min-height:36px;margin-top:22px;border-radius:6px;font-size:12px;font-weight:800;box-shadow:0 4px 9px #74368c25}
+.business-quote-form .form-note{text-align:center;font-size:10px;color:#786b7e;margin:14px 0 0}
+@media(max-width:640px){.business-quote-card{width:100%;padding:22px 18px 25px}.business-quote-heading{margin-bottom:26px}.business-quote-heading h2{font-size:22px}.business-quote-form .form-grid{grid-template-columns:1fr;gap:15px}.business-quote-form .field.full{grid-column:auto}.work-type-options{grid-template-columns:repeat(2,minmax(0,1fr))}.work-type-options label{white-space:normal}}
