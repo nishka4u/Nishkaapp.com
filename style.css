@@ -275,3 +275,35 @@ body:has(.business-quote-section) main>.section.section-tint:not(.business-quote
 .homemaker-reference-form .form-status{font-size:12px;margin-top:10px}
 @media(max-width:900px){.homemaker-process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.homemaker-process-card{min-height:160px}.homemaker-opportunity-heading{padding-bottom:30px}}
 @media(max-width:640px){.homemaker-opportunity{padding-bottom:36px}.homemaker-opportunity-heading h1{font-size:28px}.homemaker-opportunity-heading p{font-size:12px}.homemaker-important{padding:15px 14px;gap:10px;margin-bottom:22px}.homemaker-process-grid{gap:12px;margin-bottom:28px}.homemaker-process-card{padding:17px 13px;min-height:0}.homemaker-process-card p{font-size:11px}.homemaker-register{padding:25px 18px;border-radius:12px}.homemaker-register-heading h2{font-size:20px}.homemaker-reference-grid{grid-template-columns:1fr;gap:14px}.homemaker-reference-form .field.full{grid-column:auto}.homemaker-preference-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.homemaker-preference-options label{white-space:normal}}
+
+
+/* Homepage reference screenshot — first-page implementation */
+.home-reference-logo{width:52px;height:52px;display:flex;align-items:center;justify-content:center;flex:0 0 52px;overflow:hidden}
+.home-reference-logo img{width:52px;height:52px;object-fit:contain}
+@media(min-width:1100px){
+  body:has(> main#main-content .hero) .container{width:min(94%,1320px)}
+  body:has(> main#main-content .hero) .nav{min-height:80px;gap:18px}
+  body:has(> main#main-content .hero) .nav-links{gap:clamp(12px,1.25vw,20px)}
+  body:has(> main#main-content .hero) .nav-links a{font-size:.91rem}
+  body:has(> main#main-content .hero) .hero{padding:72px 0 20px}
+  body:has(> main#main-content .hero) .hero-grid{grid-template-columns:minmax(0,1.2fr) minmax(400px,.9fr);gap:46px}
+  body:has(> main#main-content .hero) .hero h1{font-size:clamp(3rem,4.35vw,3.65rem);line-height:1.28;letter-spacing:-.045em;margin-bottom:22px}
+  body:has(> main#main-content .hero) .lead{font-size:1.08rem;line-height:1.8;margin-bottom:18px}
+  body:has(> main#main-content .hero) .tagline{margin:18px 0 30px;padding:8px 14px}
+  body:has(> main#main-content .hero) .hero-photo{height:270px;border-radius:13px}
+  body:has(> main#main-content .hero) .hero-media{padding-bottom:20px}
+  body:has(> main#main-content .hero) .floating-card{left:-20px;bottom:0;width:min(300px,88%);padding:17px 20px;border-radius:13px}
+  body:has(> main#main-content .hero) .floating-mark{display:none}
+  body:has(> main#main-content .hero) .hero-proof{gap:9px;margin-top:30px;font-size:.88rem;color:#241c2a}
+  body:has(> main#main-content .hero) .hero-proof>span:nth-child(odd):not(.proof-separator){color:var(--purple)}
+}
+@media(max-width:1099px){
+  .home-reference-logo{margin-right:auto}
+}
+@media(max-width:700px){
+  body:has(> main#main-content .hero) .hero{padding:42px 0 36px}
+  body:has(> main#main-content .hero) .hero-grid{grid-template-columns:1fr;gap:28px}
+  body:has(> main#main-content .hero) .hero h1{font-size:clamp(2.45rem,10vw,3.25rem);line-height:1.13}
+  body:has(> main#main-content .hero) .hero-photo{height:245px}
+  body:has(> main#main-content .hero) .hero-proof{flex-wrap:wrap;margin-top:24px}
+}
