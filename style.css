@@ -220,3 +220,18 @@
 body:has(.business-quote-section) main>.page-hero,
 body:has(.business-quote-section) main>.merchant-solutions,
 body:has(.business-quote-section) main>.section.section-tint:not(.business-quote-section){display:none}
+
+/* Screenshot 5 — compact FAQ and footer transition */
+.faq-reference-section{background:#faf6fb;padding:24px 20px 60px;min-height:405px}
+.faq-reference-inner{width:min(100%,660px);margin:0 auto}
+.faq-reference-heading{text-align:center;margin:0 0 25px}
+.faq-reference-heading .kicker{display:block;font-size:11px;margin-bottom:13px}
+.faq-reference-heading h2{font-size:clamp(25px,3vw,36px);line-height:1.2;letter-spacing:-.035em;margin:0;color:#21152a}
+.faq-reference-list{display:grid;gap:9px}
+.faq-reference-list details{background:#fff;border:1px solid #e5d5eb;border-radius:10px;overflow:hidden}
+.faq-reference-list summary{list-style:none;cursor:pointer;position:relative;padding:16px 18px 16px 30px;font-size:12px;font-weight:800;color:#21152a}
+.faq-reference-list summary::-webkit-details-marker{display:none}
+.faq-reference-list summary:before{content:"▸";position:absolute;left:16px;top:15px;font-size:13px}
+.faq-reference-list details[open] summary:before{content:"▾"}
+.faq-reference-list details p{padding:0 18px 16px 30px;margin:0;color:#665b6c;font-size:13px;line-height:1.6}
+@media(max-width:640px){.faq-reference-section{padding:25px 15px 42px;min-height:0}.faq-reference-heading h2{font-size:27px}.faq-reference-list summary{padding:15px 15px 15px 29px}}
