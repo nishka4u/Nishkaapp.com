@@ -449,3 +449,10 @@ body:has(.business-quote-section) main>.section.section-tint:not(.business-quote
   .value-section .opportunity-card{min-height:0;padding:25px 22px 24px}
   .value-section .value-card-link{margin-top:12px}
 }
+
+
+/* Third reference screenshot — business quotation page header */
+.business-reference-logo{width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex:0 0 40px;overflow:hidden}
+.business-reference-logo img{width:40px;height:40px;object-fit:contain}
+@media(min-width:761px){body:has(.business-quote-section) .nav{min-height:76px;gap:16px}body:has(.business-quote-section) .nav-links{gap:clamp(10px,1.15vw,18px)}body:has(.business-quote-section) .nav-links a{font-size:.78rem}body:has(.business-quote-section) .nav-actions .btn{padding:9px 16px;font-size:.78rem}body:has(.business-quote-section) .lang-switch{gap:7px;padding:4px 9px;font-size:.72rem}body:has(.business-quote-section) .business-quote-card{width:min(calc(100% - 40px),720px);padding:18px 30px 28px}}
+@media(max-width:760px){.business-reference-logo{margin-right:auto}body:has(.business-quote-section) .business-quote-card{width:calc(100% - 24px);padding:20px 18px 24px}body:has(.business-quote-section) .business-quote-form .form-grid{grid-template-columns:1fr;gap:14px}body:has(.business-quote-section) .business-quote-form .field.full{grid-column:auto}body:has(.business-quote-section) .work-type-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
