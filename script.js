@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
       currentLanguage = currentLanguage === "en" ? "kn" : "en";
       localStorage.setItem("language", currentLanguage);
       switchLanguage(currentLanguage);
+      applySiteWideKannada(currentLanguage);
+  applySiteWideKannada(currentLanguage);
     });
   }
   switchLanguage(currentLanguage);
@@ -115,5 +117,160 @@ if (document.body.dataset.chat === "enabled") {
     ["pointerdown", "keydown", "scroll"].forEach(eventName => {
       window.addEventListener(eventName, () => { window.clearTimeout(timer); loadHubspotChat(); }, {once:true, passive:true});
     });
+  });
+}
+
+
+/* Site-wide Kannada translations for content that was not yet tagged per page. */
+const KANNADA_TEXT = {
+  "Skip to main content":"ಮುಖ್ಯ ವಿಷಯಕ್ಕೆ ಹೋಗಿ",
+  "Connecting Businesses With Trusted Homemakers.":"ವ್ಯಾಪಾರಗಳನ್ನು ವಿಶ್ವಾಸಾರ್ಹ ಗೃಹಿಣಿಯರೊಂದಿಗೆ ಸಂಪರ್ಕಿಸುವುದು.",
+  "Managed task allocation & quality checks":"ಕೆಲಸದ ಹಂಚಿಕೆ ಮತ್ತು ಗುಣಮಟ್ಟ ಪರಿಶೀಲನೆ",
+  "Flexible batch execution for seasonal demand":"ಋತುಮಾನಿಕ ಬೇಡಿಕೆಗೆ ಹೊಂದಿಕೊಳ್ಳುವ ಬ್ಯಾಚ್ ಕೆಲಸ",
+  "Structured material handover & return protocols":"ಸಾಮಗ್ರಿಗಳ ಹಸ್ತಾಂತರ ಮತ್ತು ಹಿಂತಿರುಗಿಸುವ ವ್ಯವಸ್ಥೆ",
+  "Clear per-unit or batch quotation transparency":"ಪ್ರತಿ ಘಟಕ ಅಥವಾ ಬ್ಯಾಚ್ ದರಗಳ ಸ್ಪಷ್ಟ ವಿವರ",
+  "→ Explore Business Support":"→ ವ್ಯಾಪಾರ ಸೇವೆಗಳನ್ನು ನೋಡಿ",
+  "Clear task rates & instructions upfront":"ಕೆಲಸದ ದರಗಳು ಮತ್ತು ಸೂಚನೆಗಳನ್ನು ಮುಂಚಿತವಾಗಿ ತಿಳಿಸಲಾಗುತ್ತದೆ",
+  "Work from home with localized coordination":"ಸ್ಥಳೀಯ ಸಮನ್ವಯದೊಂದಿಗೆ ಮನೆಯಿಂದ ಕೆಲಸ ಮಾಡಿ",
+  "No upfront registration or membership fees":"ಮುಂಗಡ ನೋಂದಣಿ ಅಥವಾ ಸದಸ್ಯತ್ವ ಶುಲ್ಕವಿಲ್ಲ",
+  "Timely payments based on completed verified work":"ಪರಿಶೀಲಿಸಿದ ಪೂರ್ಣಗೊಂಡ ಕೆಲಸಕ್ಕೆ ಸಮಯಕ್ಕೆ ಸರಿಯಾಗಿ ಪಾವತಿ",
+  "→ Join as a Homemaker":"→ ಗೃಹಿಣಿಯಾಗಿ ಸೇರಿ",
+  "Merchant solutions":"ವ್ಯಾಪಾರಿಗಳಿಗೆ ಪರಿಹಾರಗಳು",
+  "Reliable Support for Your Repetitive Work":"ನಿಮ್ಮ ಪುನರಾವರ್ತಿತ ಕೆಲಸಗಳಿಗೆ ವಿಶ್ವಾಸಾರ್ಹ ಬೆಂಬಲ",
+  "Submit your work requirements and let Nishka organize material assessment, worker allocation, batch coordination and quality checks.":"ನಿಮ್ಮ ಕೆಲಸದ ಅವಶ್ಯಕತೆಗಳನ್ನು ಸಲ್ಲಿಸಿ. ಸಾಮಗ್ರಿಗಳ ಪರಿಶೀಲನೆ, ಕೆಲಸಗಾರರ ಹಂಚಿಕೆ, ಬ್ಯಾಚ್ ಸಮನ್ವಯ ಮತ್ತು ಗುಣಮಟ್ಟ ಪರಿಶೀಲನೆಯನ್ನು ನಿಷ್ಕಾ ನಿರ್ವಹಿಸುತ್ತದೆ.",
+  "Product Packaging & Packing ▣":"ಉತ್ಪನ್ನ ಪ್ಯಾಕೇಜಿಂಗ್ ಮತ್ತು ಪ್ಯಾಕಿಂಗ್ ▣",
+  "Label & Sticker Application ◆":"ಲೇಬಲ್ ಮತ್ತು ಸ್ಟಿಕ್ಕರ್ ಅಳವಡಿಕೆ ◆",
+  "Sorting & Classification ☷":"ವಿಂಗಡಣೆ ಮತ್ತು ವರ್ಗೀಕರಣ ☷",
+  "Garment Folding & Finishing ▤":"ಉಡುಪು ಮಡಿಸುವಿಕೆ ಮತ್ತು ಅಂತಿಮ ಸಿದ್ಧತೆ ▤",
+  "Gift Hamper & Kit Assembly ♙":"ಉಡುಗೊರೆ ಹ್ಯಾಂಪರ್ ಮತ್ತು ಕಿಟ್ ಜೋಡಣೆ ♙",
+  "Printing & Collateral Sorting ▦":"ಮುದ್ರಿತ ವಸ್ತುಗಳ ವಿಂಗಡಣೆ ▦",
+  "Request a quotation":"ದರಪಟ್ಟಿ ಕೇಳಿ",
+  "Submit a Business Work Requirement":"ವ್ಯಾಪಾರದ ಕೆಲಸದ ಅವಶ್ಯಕತೆಯನ್ನು ಸಲ್ಲಿಸಿ",
+  "Provide details about your operational task needs and our team will get in touch to assess the requirements.":"ನಿಮ್ಮ ಕೆಲಸದ ಅವಶ್ಯಕತೆಗಳ ವಿವರಗಳನ್ನು ನೀಡಿ. ನಮ್ಮ ತಂಡ ಅವುಗಳನ್ನು ಪರಿಶೀಲಿಸಿ ನಿಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸುತ್ತದೆ.",
+  "Business Name":"ವ್ಯಾಪಾರದ ಹೆಸರು",
+  "Contact Person Name":"ಸಂಪರ್ಕ ವ್ಯಕ್ತಿಯ ಹೆಸರು",
+  "Phone Number":"ದೂರವಾಣಿ ಸಂಖ್ಯೆ",
+  "Business Email":"ವ್ಯಾಪಾರದ ಇಮೇಲ್",
+  "Business Category":"ವ್ಯಾಪಾರದ ವರ್ಗ",
+  "Select your industry...":"ನಿಮ್ಮ ಉದ್ಯಮವನ್ನು ಆಯ್ಕೆಮಾಡಿ...",
+  "Garments & Textiles":"ಉಡುಪು ಮತ್ತು ಜವಳಿ",
+  "Printing Press":"ಮುದ್ರಣಾಲಯ",
+  "Product Packaging":"ಉತ್ಪನ್ನ ಪ್ಯಾಕೇಜಿಂಗ್",
+  "Gifting & Hampers":"ಉಡುಗೊರೆಗಳು ಮತ್ತು ಹ್ಯಾಂಪರ್‌ಗಳು",
+  "Retail & E-commerce":"ಚಿಲ್ಲರೆ ವ್ಯಾಪಾರ ಮತ್ತು ಇ-ಕಾಮರ್ಸ್",
+  "Other":"ಇತರೆ",
+  "Approximate Quantity / Batch Size":"ಅಂದಾಜು ಪ್ರಮಾಣ / ಬ್ಯಾಚ್ ಗಾತ್ರ",
+  "Select volume range...":"ಪ್ರಮಾಣದ ವ್ಯಾಪ್ತಿಯನ್ನು ಆಯ್ಕೆಮಾಡಿ...",
+  "Under 100 units":"100 ಘಟಕಗಳಿಗಿಂತ ಕಡಿಮೆ",
+  "100–500 units":"100–500 ಘಟಕಗಳು",
+  "501–1,000 units":"501–1,000 ಘಟಕಗಳು",
+  "1,001–5,000 units":"1,001–5,000 ಘಟಕಗಳು",
+  "More than 5,000 units":"5,000 ಘಟಕಗಳಿಗಿಂತ ಹೆಚ್ಚು",
+  "OUR PRINCIPLES":"ನಮ್ಮ ತತ್ವಗಳು",
+  "Nishka Brand Values":"ನಿಷ್ಕಾದ ಮೌಲ್ಯಗಳು",
+  "Trust":"ನಂಬಿಕೆ",
+  "Built through transparent communication, dependable fulfillment, and honest business practices.":"ಪಾರದರ್ಶಕ ಸಂವಹನ, ವಿಶ್ವಾಸಾರ್ಹ ಕಾರ್ಯನಿರ್ವಹಣೆ ಮತ್ತು ಪ್ರಾಮಾಣಿಕ ವ್ಯವಹಾರ ಪದ್ಧತಿಗಳ ಮೂಲಕ ನಂಬಿಕೆಯನ್ನು ನಿರ್ಮಿಸುತ್ತೇವೆ.",
+  "Dignity":"ಗೌರವ",
+  "Respecting the time, skills, and household commitments of homemakers in every task allocated.":"ಪ್ರತಿ ಕೆಲಸದ ಹಂಚಿಕೆಯಲ್ಲಿ ಗೃಹಿಣಿಯರ ಸಮಯ, ಕೌಶಲ್ಯ ಮತ್ತು ಮನೆಯ ಜವಾಬ್ದಾರಿಗಳಿಗೆ ಗೌರವ ನೀಡುತ್ತೇವೆ.",
+  "Reliability":"ವಿಶ್ವಾಸಾರ್ಹತೆ",
+  "Strict adherence to quality checklists, batch volume deadlines, and merchant instructions.":"ಗುಣಮಟ್ಟದ ಪರಿಶೀಲನಾ ಪಟ್ಟಿ, ಬ್ಯಾಚ್ ಗಡುವು ಮತ್ತು ವ್ಯಾಪಾರಿಗಳ ಸೂಚನೆಗಳನ್ನು ಕಟ್ಟುನಿಟ್ಟಾಗಿ ಪಾಲಿಸುತ್ತೇವೆ.",
+  "Transparency":"ಪಾರದರ್ಶಕತೆ",
+  "Clear rate communication, honest task expectations, and straightforward payout schedules.":"ಸ್ಪಷ್ಟ ದರ ಮಾಹಿತಿ, ನಿಖರ ಕೆಲಸದ ನಿರೀಕ್ಷೆಗಳು ಮತ್ತು ಸರಳ ಪಾವತಿ ವೇಳಾಪಟ್ಟಿ.",
+  "Quality":"ಗುಣಮಟ್ಟ",
+  "Managed verification workflows ensuring zero-defect deliverables for every business partner.":"ಪ್ರತಿ ವ್ಯಾಪಾರ ಪಾಲುದಾರರಿಗೆ ದೋಷರಹಿತ ಫಲಿತಾಂಶ ಒದಗಿಸಲು ನಿರ್ವಹಿತ ಪರಿಶೀಲನಾ ಕ್ರಮಗಳು.",
+  "Opportunity":"ಅವಕಾಶ",
+  "Expanding accessible, home-aligned economic growth for women across local neighborhoods.":"ಸ್ಥಳೀಯ ಪ್ರದೇಶಗಳ ಮಹಿಳೆಯರಿಗೆ ಮನೆಯ ಜವಾಬ್ದಾರಿಗಳಿಗೆ ಹೊಂದುವ ಆದಾಯದ ಅವಕಾಶಗಳನ್ನು ವಿಸ್ತರಿಸುವುದು.",
+  "Registered Address":"ನೋಂದಾಯಿತ ವಿಳಾಸ",
+  "Phone Contact":"ದೂರವಾಣಿ ಸಂಪರ್ಕ",
+  "Email Enquiry":"ಇಮೇಲ್ ವಿಚಾರಣೆ",
+  "Official Website":"ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್",
+  "Follow Our Social Channels":"ನಮ್ಮ ಸಾಮಾಜಿಕ ಜಾಲತಾಣಗಳನ್ನು ಅನುಸರಿಸಿ",
+  "Send a General Enquiry":"ಸಾಮಾನ್ಯ ವಿಚಾರಣೆಯನ್ನು ಕಳುಹಿಸಿ",
+  "Your Name":"ನಿಮ್ಮ ಹೆಸರು",
+  "Email Address":"ಇಮೇಲ್ ವಿಳಾಸ",
+  "Inquiry Type":"ವಿಚಾರಣೆಯ ಪ್ರಕಾರ",
+  "Business Work Requirement":"ವ್ಯಾಪಾರದ ಕೆಲಸದ ಅವಶ್ಯಕತೆ",
+  "Homemaker Registration":"ಗೃಹಿಣಿ ನೋಂದಣಿ",
+  "Partnership":"ಪಾಲುದಾರಿಕೆ",
+  "Other Enquiry":"ಇತರೆ ವಿಚಾರಣೆ",
+  "Message":"ಸಂದೇಶ",
+  "➤   Send Message":"➤   ಸಂದೇಶ ಕಳುಹಿಸಿ",
+  "Privacy policy":"ಗೌಪ್ಯತಾ ನೀತಿ",
+  "How we use submitted information":"ಸಲ್ಲಿಸಿದ ಮಾಹಿತಿಯನ್ನು ನಾವು ಹೇಗೆ ಬಳಸುತ್ತೇವೆ",
+  "Contact: info@nishkaapp.com":"ಸಂಪರ್ಕ: info@nishkaapp.com",
+  "Terms & conditions":"ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು",
+  "Full Name":"ಪೂರ್ಣ ಹೆಸರು",
+  "Mobile Phone Number":"ಮೊಬೈಲ್ ದೂರವಾಣಿ ಸಂಖ್ಯೆ",
+  "Locality / Area in Bengaluru":"ಬೆಂಗಳೂರಿನ ಪ್ರದೇಶ / ಬಡಾವಣೆ",
+  "Daily Available Time":"ಪ್ರತಿದಿನ ಲಭ್ಯವಿರುವ ಸಮಯ",
+  "Select availability...":"ಲಭ್ಯ ಸಮಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ...",
+  "1–2 hours":"1–2 ಗಂಟೆಗಳು",
+  "2–3 hours":"2–3 ಗಂಟೆಗಳು",
+  "3–4 hours":"3–4 ಗಂಟೆಗಳು",
+  "4+ hours":"4 ಅಥವಾ ಹೆಚ್ಚು ಗಂಟೆಗಳು",
+  "Flexible / varies daily":"ಹೊಂದಿಕೊಳ್ಳುವ ಸಮಯ / ಪ್ರತಿದಿನ ಬದಲಾಗುತ್ತದೆ",
+  "Box & Pouch Packing":"ಬಾಕ್ಸ್ ಮತ್ತು ಪೌಚ್ ಪ್ಯಾಕಿಂಗ್",
+  "Sticker Labeling":"ಸ್ಟಿಕ್ಕರ್ ಲೇಬಲಿಂಗ್",
+  "Item Sorting":"ವಸ್ತುಗಳ ವಿಂಗಡಣೆ",
+  "Gift Hamper Assembly":"ಉಡುಗೊರೆ ಹ್ಯಾಂಪರ್ ಜೋಡಣೆ",
+  "Gift Kit Assembly":"ಉಡುಗೊರೆ ಕಿಟ್ ಜೋಡಣೆ",
+  "Preferred Contact Language":"ಆದ್ಯತೆಯ ಸಂಪರ್ಕ ಭಾಷೆ",
+  "Kannada":"ಕನ್ನಡ",
+  "English":"ಇಂಗ್ಲಿಷ್",
+  "Hindi":"ಹಿಂದಿ",
+  "Tamil":"ತಮಿಳು",
+  "Telugu":"ತೆಲುಗು",
+  "Previous Experience (optional)":"ಹಿಂದಿನ ಅನುಭವ (ಐಚ್ಛಿಕ)",
+  "Additional Information (optional)":"ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ (ಐಚ್ಛಿಕ)",
+  "Registration is completely free. Task allocation depends on local business requirements.":"ನೋಂದಣಿ ಸಂಪೂರ್ಣ ಉಚಿತ. ಕೆಲಸದ ಹಂಚಿಕೆ ಸ್ಥಳೀಯ ವ್ಯಾಪಾರದ ಅವಶ್ಯಕತೆಗಳ ಮೇಲೆ ಅವಲಂಬಿತವಾಗಿರುತ್ತದೆ.",
+  "♥   Register Interest — Join Nishka":"♥   ಆಸಕ್ತಿ ನೋಂದಾಯಿಸಿ — ನಿಷ್ಕಾಗೆ ಸೇರಿ",
+  "Navigation":"ನ್ಯಾವಿಗೇಶನ್",
+  "Home":"ಮುಖಪುಟ",
+  "Work Categories":"ಕೆಲಸದ ವಿಭಾಗಗಳು",
+  "Sticker & Labeling":"ಸ್ಟಿಕ್ಕರ್ ಮತ್ತು ಲೇಬಲಿಂಗ್",
+  "Contact Details":"ಸಂಪರ್ಕ ವಿವರಗಳು",
+  "The process":"ಪ್ರಕ್ರಿಯೆ",
+  "From requirement to completion.":"ಅವಶ್ಯಕತೆಯಿಂದ ಪೂರ್ಣಗೊಳಿಸುವವರೆಗೆ.",
+  "Share work type, quantity and target date.":"ಕೆಲಸದ ಪ್ರಕಾರ, ಪ್ರಮಾಣ ಮತ್ತು ಗುರಿ ದಿನಾಂಕವನ್ನು ಹಂಚಿಕೊಳ್ಳಿ.",
+  "We discuss scope, quality and logistics.":"ಕೆಲಸದ ವ್ಯಾಪ್ತಿ, ಗುಣಮಟ್ಟ ಮತ್ತು ಸಾಗಣೆಯನ್ನು ಚರ್ಚಿಸುತ್ತೇವೆ.",
+  "Suitable work is planned with available capacity.":"ಲಭ್ಯ ಸಾಮರ್ಥ್ಯಕ್ಕೆ ಅನುಗುಣವಾಗಿ ಸೂಕ್ತ ಕೆಲಸವನ್ನು ಯೋಜಿಸಲಾಗುತ್ತದೆ.",
+  "Completed work is checked against agreed criteria.":"ಪೂರ್ಣಗೊಂಡ ಕೆಲಸವನ್ನು ಒಪ್ಪಿಕೊಂಡ ಮಾನದಂಡಗಳ ಪ್ರಕಾರ ಪರಿಶೀಲಿಸಲಾಗುತ್ತದೆ."
+};
+const KANNADA_PLACEHOLDERS = {
+  "e.g. packing, stitching, craft work":"ಉದಾ: ಪ್ಯಾಕಿಂಗ್, ಹೊಲಿಗೆ, ಕರಕುಶಲ ಕೆಲಸ",
+  "Anything else you'd like our team to know":"ನಮ್ಮ ತಂಡ ತಿಳಿದುಕೊಳ್ಳಬೇಕಾದ ಇತರೆ ಮಾಹಿತಿ",
+  "Your full name":"ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು",
+  "e.g. Jayanagar, JP Nagar, BTM Layout":"ಉದಾ: ಜಯನಗರ, ಜೆ.ಪಿ. ನಗರ, ಬಿಟಿಎಂ ಲೇಔಟ್",
+  "How can we assist you?":"ನಾವು ನಿಮಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡಬಹುದು?",
+  "Full name":"ಪೂರ್ಣ ಹೆಸರು",
+  "email@domain.com":"email@domain.com"
+};
+function applySiteWideKannada(lang) {
+  const useKannada = lang === "kn";
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    const parent = node.parentElement;
+    if (!parent || parent.closest("[data-en][data-kn],script,style")) return;
+    const original = node.nodeValue;
+    const trimmed = original.trim();
+    if (!trimmed) return;
+    const translated = KANNADA_TEXT[trimmed];
+    if (translated) node.nodeValue = original.replace(trimmed, useKannada ? translated : trimmed);
+  });
+  document.querySelectorAll("input[placeholder],textarea[placeholder]").forEach(el => {
+    const original = el.getAttribute("data-original-placeholder") || el.placeholder;
+    if (!el.hasAttribute("data-original-placeholder")) el.setAttribute("data-original-placeholder", original);
+    el.placeholder = useKannada ? (KANNADA_PLACEHOLDERS[original] || original) : original;
+  });
+  document.querySelectorAll("label[for]").forEach(label => {
+    const original = label.getAttribute("data-original-label") || label.textContent.trim();
+    if (!label.hasAttribute("data-original-label")) label.setAttribute("data-original-label", original);
+    const translated = KANNADA_TEXT[original.replace(/\\s*\\*$/, "")];
+    if (translated) {
+      const star = /\\*$/.test(original) ? " *" : "";
+      label.textContent = useKannada ? translated + star : original;
+    }
   });
 }
