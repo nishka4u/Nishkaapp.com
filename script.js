@@ -213,7 +213,7 @@ function translatePageText(lang) {
     const parent = node.parentElement;
     if (!parent || parent.closest("script,style,textarea,[data-en][data-kn],.lang-switch")) return;
     const raw = node.nodeValue;
-    const key = raw.trim().replace(/\\s+/g, " ");
+    const key = raw.trim().replace(/\s+/g, " ");
     if (!key) return;
     const translated = KN_TRANSLATIONS[key];
     if (translated) node.nodeValue = raw.replace(key, translated);
