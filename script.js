@@ -14,10 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const langToggle = document.getElementById("langToggle");
   if (langToggle) {
-    langToggle.addEventListener("click", () => {
-      currentLanguage = currentLanguage === "en" ? "kn" : "en";
-      localStorage.setItem("language", currentLanguage);
-      switchLanguage(currentLanguage);
+    langToggle.addEventListener("click", event => {
+      const labels = langToggle.querySelectorAll("span");
+      const clickedLabel = event.target.closest("span");
+      const selectedLanguage = clickedLabel === labels[0] ? "en" : "kn";
+      switchLanguage(selectedLanguage);
     });
   }
   switchLanguage(currentLanguage);
@@ -252,6 +253,7 @@ function switchLanguage(lang) {
   currentLanguage = lang === "kn" ? "kn" : "en";
   localStorage.setItem("language", currentLanguage);
   document.documentElement.lang = currentLanguage;
+
   const titleTranslations = {
     "Nishka — Bridging Businesses & Homemakers":"ನಿಷ್ಕಾ — ವ್ಯಾಪಾರಗಳು ಮತ್ತು ಗೃಹಿಣಿಯರನ್ನು ಸಂಪರ್ಕಿಸುವ ಸೇತುವೆ",
     "About & Contact | Nishka":"ನಮ್ಮ ಬಗ್ಗೆ ಮತ್ತು ಸಂಪರ್ಕ | ನಿಷ್ಕಾ",
@@ -263,31 +265,28 @@ function switchLanguage(lang) {
     ? (titleTranslations[document.body.dataset.originalTitle] || document.body.dataset.originalTitle)
     : document.body.dataset.originalTitle;
 
-  if (currentLanguage === "kn") {
-    document.querySelectorAll("[data-en][data-kn]").forEach(element => {
-      element.textContent = element.getAttribute("data-kn");
-    });
-    translatePageText("kn");
-  } else {
-    translatePageText("en");
-    document.querySelectorAll("[data-en][data-kn]").forEach(element => {
-      element.textContent = element.getAttribute("data-en");
-    });
-  }
+  // Restore all free text nodes first, then set every explicitly bilingual element.
+  translatePageText(currentLanguage);
+  document.querySelectorAll("[data-en][data-kn]").forEach(element => {
+    element.textContent = currentLanguage === "kn"
+      ? element.getAttribute("data-kn")
+      : element.getAttribute("data-en");
+  });
 
-  document.body.dataset.languageTranslated = currentLanguage === "kn" ? "true" : "false";
+  // Re-translate non-bilingual text after explicit elements have been set.
+  if (currentLanguage === "kn") translatePageText("kn");
+
+  document.body.dataset.languageTranslated = currentLanguage;
   const langBtn = document.getElementById("langToggle");
   if (langBtn) {
     const labels = langBtn.querySelectorAll("span");
-    // Keep both language names visible; highlight the currently selected language.
     if (labels.length >= 3) {
       labels[0].textContent = "English";
       labels[2].textContent = "ಕನ್ನಡ";
       labels[0].classList.toggle("lang-active", currentLanguage === "en");
       labels[2].classList.toggle("lang-active", currentLanguage === "kn");
     }
-    langBtn.setAttribute("aria-label", currentLanguage === "en" ? "Current language English. Switch to Kannada." : "Current language Kannada. Switch to English.");
-    langBtn.setAttribute("title", currentLanguage === "en" ? "English selected — click to switch to Kannada" : "ಕನ್ನಡ ಆಯ್ಕೆಮಾಡಲಾಗಿದೆ — English ಗೆ ಬದಲಾಯಿಸಲು ಕ್ಲಿಕ್ ಮಾಡಿ");
+    langBtn.setAttribute("aria-label", currentLanguage === "en" ? "English selected. Choose Kannada to translate." : "Kannada selected. Choose English to translate.");
   }
 }
 
