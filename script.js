@@ -278,11 +278,16 @@ function switchLanguage(lang) {
   document.body.dataset.languageTranslated = currentLanguage === "kn" ? "true" : "false";
   const langBtn = document.getElementById("langToggle");
   if (langBtn) {
-    const active = langBtn.querySelector(".lang-active");
-    // Show the language the visitor can switch TO, not the language currently selected.
-    if (active) active.textContent = currentLanguage === "en" ? "ಕನ್ನಡ" : "English";
-    langBtn.setAttribute("aria-label", currentLanguage === "en" ? "Switch to Kannada" : "Switch to English");
-    langBtn.setAttribute("title", currentLanguage === "en" ? "Switch to Kannada" : "Switch to English");
+    const labels = langBtn.querySelectorAll("span");
+    // Keep both language names visible; highlight the currently selected language.
+    if (labels.length >= 3) {
+      labels[0].textContent = "English";
+      labels[2].textContent = "ಕನ್ನಡ";
+      labels[0].classList.toggle("lang-active", currentLanguage === "en");
+      labels[2].classList.toggle("lang-active", currentLanguage === "kn");
+    }
+    langBtn.setAttribute("aria-label", currentLanguage === "en" ? "Current language English. Switch to Kannada." : "Current language Kannada. Switch to English.");
+    langBtn.setAttribute("title", currentLanguage === "en" ? "English selected — click to switch to Kannada" : "ಕನ್ನಡ ಆಯ್ಕೆಮಾಡಲಾಗಿದೆ — English ಗೆ ಬದಲಾಯಿಸಲು ಕ್ಲಿಕ್ ಮಾಡಿ");
   }
 }
 
