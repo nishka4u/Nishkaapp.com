@@ -19,10 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("language", currentLanguage);
       switchLanguage(currentLanguage);
       applySiteWideKannada(currentLanguage);
-  applySiteWideKannada(currentLanguage);
     });
   }
   switchLanguage(currentLanguage);
+  applySiteWideKannada(currentLanguage);
 
   document.querySelectorAll("[data-form]").forEach(form => {
     form.addEventListener("submit", async event => {
