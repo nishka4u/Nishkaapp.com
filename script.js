@@ -167,6 +167,9 @@ function restorePageText() {
 function switchLanguage(lang) {
   currentLanguage = lang === "kn" ? "kn" : "en";
   document.documentElement.lang = currentLanguage;
+  const titleTranslations = {"Nishka — Bridging Businesses & Homemakers":"ನಿಷ್ಕಾ — ವ್ಯಾಪಾರಗಳು ಮತ್ತು ಗೃಹಿಣಿಯರನ್ನು ಸಂಪರ್ಕಿಸುವ ಸೇತುವೆ","About & Contact | Nishka":"ನಮ್ಮ ಬಗ್ಗೆ ಮತ್ತು ಸಂಪರ್ಕ | ನಿಷ್ಕಾ","For Businesses | Nishka":"ವ್ಯಾಪಾರಿಗಳಿಗಾಗಿ | ನಿಷ್ಕಾ","For Homemakers | Nishka":"ಗೃಹಿಣಿಯರಿಗಾಗಿ | ನಿಷ್ಕಾ"};
+  if (!document.body.dataset.originalTitle) document.body.dataset.originalTitle = document.title;
+  document.title = currentLanguage === "kn" ? (titleTranslations[document.body.dataset.originalTitle] || document.body.dataset.originalTitle) : document.body.dataset.originalTitle;
   document.querySelectorAll("[data-en][data-kn]").forEach(element => {
     if (!element.dataset.originalEn) element.dataset.originalEn = element.getAttribute("data-en");
     const value = currentLanguage === "en" ? element.getAttribute("data-en") : element.getAttribute("data-kn");
