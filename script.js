@@ -253,7 +253,8 @@ function applySiteWideKannada(lang) {
   nodes.forEach(node => {
     const parent = node.parentElement;
     if (!parent || parent.closest("[data-en][data-kn],script,style")) return;
-    const original = node.nodeValue;
+    const original = node.__nishkaOriginalText || node.nodeValue;
+    node.__nishkaOriginalText = original;
     const trimmed = original.trim();
     if (!trimmed) return;
     const translated = KANNADA_TEXT[trimmed];
