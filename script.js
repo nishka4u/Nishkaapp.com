@@ -204,60 +204,85 @@ Object.assign(KN_TRANSLATIONS, {
 "© Nishka. Operated by Avenza Solutions Private Limited. All rights reserved.":"© ನಿಷ್ಕಾ. ಅವೆನ್ಜಾ ಸೊಲ್ಯೂಷನ್ಸ್ ಪ್ರೈವೇಟ್ ಲಿಮಿಟೆಡ್ ನಿರ್ವಹಿಸುತ್ತದೆ. ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ."
 });
 
+function restoreTranslatedTextNodes() {
+  const originals = window.__nishkaOriginalTextNodes;
+  if (originals) {
+    originals.forEach((value, node) => {
+      if (node && node.parentNode) node.nodeValue = value;
+    });
+  }
+  document.querySelectorAll("[data-original-placeholder]").forEach(el => {
+    el.placeholder = el.dataset.originalPlaceholder;
+  });
+  document.querySelectorAll("select option[data-original-text]").forEach(el => {
+    el.textContent = el.dataset.originalText;
+  });
+}
+
 function translatePageText(lang) {
+  restoreTranslatedTextNodes();
   if (lang !== "kn") return;
+  const originals = window.__nishkaOriginalTextNodes || (window.__nishkaOriginalTextNodes = new Map());
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   const nodes = [];
   while (walker.nextNode()) nodes.push(walker.currentNode);
   nodes.forEach(node => {
     const parent = node.parentElement;
-    if (!parent || parent.closest("script,style,textarea,[data-en][data-kn],.lang-switch")) return;
+    if (!parent || parent.closest("script,style,textarea,[data-en][data-kn],.lang-switch,#langToggle")) return;
     const raw = node.nodeValue;
-    const key = raw.trim().replace(/\s+/g, " ");
+    if (!originals.has(node)) originals.set(node, raw);
+    const key = originals.get(node).trim().replace(/\s+/g, " ");
     if (!key) return;
     const translated = KN_TRANSLATIONS[key];
-    if (translated) node.nodeValue = raw.replace(key, translated);
+    if (translated) node.nodeValue = originals.get(node).replace(key, translated);
   });
   document.querySelectorAll("input[placeholder],textarea[placeholder]").forEach(el => {
     if (!el.dataset.originalPlaceholder) el.dataset.originalPlaceholder = el.placeholder;
-    if (KN_TRANSLATIONS[el.dataset.originalPlaceholder]) el.placeholder = KN_TRANSLATIONS[el.dataset.originalPlaceholder];
+    const translated = KN_TRANSLATIONS[el.dataset.originalPlaceholder];
+    if (translated) el.placeholder = translated;
   });
   document.querySelectorAll("select option").forEach(el => {
     if (!el.dataset.originalText) el.dataset.originalText = el.textContent;
-    const key = el.dataset.originalText.trim();
-    if (KN_TRANSLATIONS[key]) el.textContent = KN_TRANSLATIONS[key];
+    const translated = KN_TRANSLATIONS[el.dataset.originalText.trim()];
+    if (translated) el.textContent = translated;
   });
 }
-function restorePageText() {
-  document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-  document.querySelectorAll("[data-original-text]").forEach(el => el.textContent = el.dataset.originalText);
-  document.querySelectorAll("[data-original-placeholder]").forEach(el => el.placeholder = el.dataset.originalPlaceholder);
-}
+
 function switchLanguage(lang) {
   currentLanguage = lang === "kn" ? "kn" : "en";
+  localStorage.setItem("language", currentLanguage);
   document.documentElement.lang = currentLanguage;
-  const titleTranslations = {"Nishka — Bridging Businesses & Homemakers":"ನಿಷ್ಕಾ — ವ್ಯಾಪಾರಗಳು ಮತ್ತು ಗೃಹಿಣಿಯರನ್ನು ಸಂಪರ್ಕಿಸುವ ಸೇತುವೆ","About & Contact | Nishka":"ನಮ್ಮ ಬಗ್ಗೆ ಮತ್ತು ಸಂಪರ್ಕ | ನಿಷ್ಕಾ","For Businesses | Nishka":"ವ್ಯಾಪಾರಿಗಳಿಗಾಗಿ | ನಿಷ್ಕಾ","For Homemakers | Nishka":"ಗೃಹಿಣಿಯರಿಗಾಗಿ | ನಿಷ್ಕಾ"};
+  const titleTranslations = {
+    "Nishka — Bridging Businesses & Homemakers":"ನಿಷ್ಕಾ — ವ್ಯಾಪಾರಗಳು ಮತ್ತು ಗೃಹಿಣಿಯರನ್ನು ಸಂಪರ್ಕಿಸುವ ಸೇತುವೆ",
+    "About & Contact | Nishka":"ನಮ್ಮ ಬಗ್ಗೆ ಮತ್ತು ಸಂಪರ್ಕ | ನಿಷ್ಕಾ",
+    "For Businesses | Nishka":"ವ್ಯಾಪಾರಿಗಳಿಗಾಗಿ | ನಿಷ್ಕಾ",
+    "For Homemakers | Nishka":"ಗೃಹಿಣಿಯರಿಗಾಗಿ | ನಿಷ್ಕಾ"
+  };
   if (!document.body.dataset.originalTitle) document.body.dataset.originalTitle = document.title;
-  document.title = currentLanguage === "kn" ? (titleTranslations[document.body.dataset.originalTitle] || document.body.dataset.originalTitle) : document.body.dataset.originalTitle;
-  document.querySelectorAll("[data-en][data-kn]").forEach(element => {
-    if (!element.dataset.originalEn) element.dataset.originalEn = element.getAttribute("data-en");
-    const value = currentLanguage === "en" ? element.getAttribute("data-en") : element.getAttribute("data-kn");
-    if (value !== null) element.textContent = value;
-  });
-  if (currentLanguage === "kn") translatePageText("kn");
-  else {
-    document.querySelectorAll("[data-en][data-kn]").forEach(element => element.textContent = element.dataset.originalEn);
-    document.querySelectorAll("input[data-original-placeholder],textarea[data-original-placeholder]").forEach(el => el.placeholder = el.dataset.originalPlaceholder);
-    document.querySelectorAll("select option[data-original-text]").forEach(el => el.textContent = el.dataset.originalText);
-    // Reloading the page restores any translated standalone text nodes exactly.
-    if (document.body.dataset.languageTranslated === "true") location.reload();
+  document.title = currentLanguage === "kn"
+    ? (titleTranslations[document.body.dataset.originalTitle] || document.body.dataset.originalTitle)
+    : document.body.dataset.originalTitle;
+
+  if (currentLanguage === "kn") {
+    document.querySelectorAll("[data-en][data-kn]").forEach(element => {
+      element.textContent = element.getAttribute("data-kn");
+    });
+    translatePageText("kn");
+  } else {
+    translatePageText("en");
+    document.querySelectorAll("[data-en][data-kn]").forEach(element => {
+      element.textContent = element.getAttribute("data-en");
+    });
   }
+
   document.body.dataset.languageTranslated = currentLanguage === "kn" ? "true" : "false";
   const langBtn = document.getElementById("langToggle");
   if (langBtn) {
     const active = langBtn.querySelector(".lang-active");
-    if (active) active.textContent = currentLanguage === "en" ? "English" : "ಕನ್ನಡ";
+    // Show the language the visitor can switch TO, not the language currently selected.
+    if (active) active.textContent = currentLanguage === "en" ? "ಕನ್ನಡ" : "English";
     langBtn.setAttribute("aria-label", currentLanguage === "en" ? "Switch to Kannada" : "Switch to English");
+    langBtn.setAttribute("title", currentLanguage === "en" ? "Switch to Kannada" : "Switch to English");
   }
 }
 
