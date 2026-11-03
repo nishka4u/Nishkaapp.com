@@ -14,11 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const langToggle = document.getElementById("langToggle");
   if (langToggle) {
-    langToggle.addEventListener("click", event => {
-      const labels = langToggle.querySelectorAll("span");
-      const clickedLabel = event.target.closest("span");
-      const selectedLanguage = clickedLabel === labels[0] ? "en" : "kn";
-      switchLanguage(selectedLanguage);
+    langToggle.addEventListener("click", () => {
+      switchLanguage(currentLanguage === "en" ? "kn" : "en");
     });
   }
   switchLanguage(currentLanguage);
@@ -203,6 +200,35 @@ Object.assign(KN_TRANSLATIONS, {
 "Jayanagar 4th block, Bangalore, Bangalore, Karnataka, 560041, IN":"ಜಯನಗರ 4ನೇ ಬ್ಲಾಕ್, ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ, 560041, ಭಾರತ",
 "Jayanagar 4th block, Bangalore, Karnataka, 560041, IN":"ಜಯನಗರ 4ನೇ ಬ್ಲಾಕ್, ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ, 560041, ಭಾರತ",
 "© Nishka. Operated by Avenza Solutions Private Limited. All rights reserved.":"© ನಿಷ್ಕಾ. ಅವೆನ್ಜಾ ಸೊಲ್ಯೂಷನ್ಸ್ ಪ್ರೈವೇಟ್ ಲಿಮಿಟೆಡ್ ನಿರ್ವಹಿಸುತ್ತದೆ. ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ."
+});
+
+
+Object.assign(KN_TRANSLATIONS, {
+  "Home":"ಮುಖಪುಟ","Navigation":"ನ್ಯಾವಿಗೇಶನ್","Work Categories":"ಕೆಲಸದ ವಿಭಾಗಗಳು","Contact Details":"ಸಂಪರ್ಕ ವಿವರಗಳು",
+  "Product Packaging":"ಉತ್ಪನ್ನ ಪ್ಯಾಕಿಂಗ್","Sticker & Labeling":"ಸ್ಟಿಕ್ಕರ್ ಮತ್ತು ಲೇಬಲಿಂಗ್","Item Sorting":"ವಸ್ತುಗಳ ವಿಂಗಡಣೆ","Garment Folding":"ಬಟ್ಟೆ ಮಡಿಸುವಿಕೆ","Gift Kit Assembly":"ಉಡುಗೊರೆ ಕಿಟ್ ಜೋಡಣೆ",
+  "Product Packaging & Packing ▣":"ಉತ್ಪನ್ನ ಪ್ಯಾಕಿಂಗ್ ಮತ್ತು ಪ್ಯಾಕೇಜಿಂಗ್ ▣","Label & Sticker Application ◆":"ಲೇಬಲ್ ಮತ್ತು ಸ್ಟಿಕ್ಕರ್ ಅಳವಡಿಕೆ ◆","Sorting & Classification ☷":"ವಿಂಗಡಣೆ ಮತ್ತು ವರ್ಗೀಕರಣ ☷","Garment Folding & Finishing ▤":"ಬಟ್ಟೆ ಮಡಿಸುವಿಕೆ ಮತ್ತು ಪೂರ್ಣಗೊಳಿಸುವಿಕೆ ▤","Gift Hamper & Kit Assembly ♙":"ಉಡುಗೊರೆ ಹ್ಯಾಂಪರ್ ಮತ್ತು ಕಿಟ್ ಜೋಡಣೆ ♙","Printing & Collateral Sorting ▦":"ಮುದ್ರಣ ಸಾಮಗ್ರಿಗಳ ವಿಂಗಡಣೆ ▦",
+  "Business Name *":"ವ್ಯಾಪಾರದ ಹೆಸರು *","Contact Person Name *":"ಸಂಪರ್ಕ ವ್ಯಕ್ತಿಯ ಹೆಸರು *","Phone Number *":"ದೂರವಾಣಿ ಸಂಖ್ಯೆ *","Business Email *":"ವ್ಯಾಪಾರದ ಇಮೇಲ್ *","Business Category *":"ವ್ಯಾಪಾರದ ವರ್ಗ *","Approximate Quantity / Batch Size *":"ಅಂದಾಜು ಪ್ರಮಾಣ / ಬ್ಯಾಚ್ ಗಾತ್ರ *","Target Completion Date *":"ಪೂರ್ಣಗೊಳಿಸುವ ಗುರಿ ದಿನಾಂಕ *","Material Handover Location (Bengaluru) *":"ಸಾಮಗ್ರಿ ಹಸ್ತಾಂತರ ಸ್ಥಳ (ಬೆಂಗಳೂರು) *","Type of Work Required (Select all that apply) *":"ಅಗತ್ಯವಿರುವ ಕೆಲಸದ ಪ್ರಕಾರ (ಎಲ್ಲವನ್ನೂ ಆಯ್ಕೆಮಾಡಿ) *","Additional Work Instructions / Material Notes":"ಹೆಚ್ಚುವರಿ ಕೆಲಸದ ಸೂಚನೆಗಳು / ಸಾಮಗ್ರಿಗಳ ಟಿಪ್ಪಣಿಗಳು","Describe the specific packaging guidelines, dimensions, or fragility of materials...":"ಪ್ಯಾಕಿಂಗ್ ಸೂಚನೆಗಳು, ಗಾತ್ರಗಳು ಅಥವಾ ಸಾಮಗ್ರಿಗಳ ಸೂಕ್ಷ್ಮತೆಯ ವಿವರ ನೀಡಿ...","Submit Work Requirement":"ಕೆಲಸದ ಅವಶ್ಯಕತೆಯನ್ನು ಸಲ್ಲಿಸಿ","Our operations coordinator will review your requirement and reach out within 24 business hours.":"ನಮ್ಮ ಕಾರ್ಯಾಚರಣೆ ಸಂಯೋಜಕರು ನಿಮ್ಮ ಅವಶ್ಯಕತೆಯನ್ನು ಪರಿಶೀಲಿಸಿ 24 ಕೆಲಸದ ಗಂಟೆಗಳೊಳಗೆ ಸಂಪರ್ಕಿಸುತ್ತಾರೆ.",
+  "Full Name *":"ಪೂರ್ಣ ಹೆಸರು *","Mobile Phone Number *":"ಮೊಬೈಲ್ ಸಂಖ್ಯೆ *","Locality / Area in Bengaluru *":"ಬೆಂಗಳೂರು ಪ್ರದೇಶ / ಸ್ಥಳ *","Daily Available Time *":"ಪ್ರತಿದಿನ ಲಭ್ಯವಿರುವ ಸಮಯ *","Work Preferences *":"ಕೆಲಸದ ಆದ್ಯತೆಗಳು *","Preferred Contact Language":"ಆದ್ಯತೆಯ ಸಂಪರ್ಕ ಭಾಷೆ","Previous Experience (optional)":"ಹಿಂದಿನ ಅನುಭವ (ಐಚ್ಛಿಕ)","e.g. packing, stitching, craft work":"ಉದಾ: ಪ್ಯಾಕಿಂಗ್, ಹೊಲಿಗೆ, ಕರಕುಶಲ ಕೆಲಸ","Additional Information (optional)":"ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ (ಐಚ್ಛಿಕ)","Anything else you'd like our team to know":"ನಮ್ಮ ತಂಡಕ್ಕೆ ತಿಳಿಸಲು ಬಯಸುವ ಬೇರೆ ಮಾಹಿತಿ","Registration is completely free. Task allocation depends on local business requirements.":"ನೋಂದಣಿ ಸಂಪೂರ್ಣ ಉಚಿತ. ಕೆಲಸದ ಹಂಚಿಕೆ ಸ್ಥಳೀಯ ವ್ಯಾಪಾರ ಅವಶ್ಯಕತೆಗಳನ್ನು ಅವಲಂಬಿಸಿರುತ್ತದೆ.","Register Interest — Join Nishka":"ಆಸಕ್ತಿ ನೋಂದಾಯಿಸಿ — ನಿಷ್ಕಾಗೆ ಸೇರಿ",
+  "Your Name *":"ನಿಮ್ಮ ಹೆಸರು *","Email Address *":"ಇಮೇಲ್ ವಿಳಾಸ *","Inquiry Type *":"ವಿಚಾರಣೆಯ ಪ್ರಕಾರ *","Message *":"ಸಂದೇಶ *","Send Message":"ಸಂದೇಶ ಕಳುಹಿಸಿ",
+  "Our circular coordination system oversees every step from initial requirement definition to final batch quality audit.":"ಆರಂಭಿಕ ಅವಶ್ಯಕತೆಗಳ ನಿರ್ಧಾರದಿಂದ ಅಂತಿಮ ಬ್ಯಾಚ್ ಗುಣಮಟ್ಟ ಪರಿಶೀಲನೆಯವರೆಗೆ ನಮ್ಮ ಸಮನ್ವಯ ವ್ಯವಸ್ಥೆಯು ಪ್ರತಿಯೊಂದು ಹಂತವನ್ನೂ ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡುತ್ತದೆ.",
+  "Our platform standards guarantee flawless operational execution, full cross-platform compliance, and trustworthy merchant and homemaker integration.":"ನಮ್ಮ ವೇದಿಕೆಯ ಮಾನದಂಡಗಳು ಸುಗಮ ಕಾರ್ಯಾಚರಣೆ, ವಿವಿಧ ಸಾಧನಗಳಲ್ಲಿ ಹೊಂದಾಣಿಕೆ ಮತ್ತು ವ್ಯಾಪಾರಿಗಳು ಹಾಗೂ ಗೃಹಿಣಿಯರ ವಿಶ್ವಾಸಾರ್ಹ ಸಂಪರ್ಕವನ್ನು ಖಚಿತಪಡಿಸುತ್ತವೆ.",
+  "Desktop & Mobile Review: Verified layout responsiveness across all screen sizes.":"ಡೆಸ್ಕ್‌ಟಾಪ್ ಮತ್ತು ಮೊಬೈಲ್ ಪರಿಶೀಲನೆ: ಎಲ್ಲಾ ಪರದೆ ಗಾತ್ರಗಳಲ್ಲಿ ವಿನ್ಯಾಸದ ಹೊಂದಾಣಿಕೆಯನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ.",
+  "Navigation & CTA Testing: Tested all anchor navigation and conversion CTAs.":"ನ್ಯಾವಿಗೇಶನ್ ಮತ್ತು CTA ಪರೀಕ್ಷೆ: ಎಲ್ಲಾ ಲಿಂಕ್‌ಗಳು ಮತ್ತು ಕ್ರಿಯೆಗೆ ಆಹ್ವಾನಿಸುವ ಬಟನ್‌ಗಳನ್ನು ಪರೀಕ್ಷಿಸಲಾಗಿದೆ.",
+  "Form Integration Test: Validated business enquiry and homemaker registration inputs.":"ಫಾರ್ಮ್ ಏಕೀಕರಣ ಪರೀಕ್ಷೆ: ವ್ಯಾಪಾರ ವಿಚಾರಣೆ ಮತ್ತು ಗೃಹಿಣಿ ನೋಂದಣಿ ವಿವರಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ.",
+  "Media & Watermark Checks: Verified image loading, ratios, and unclipped legal watermarks.":"ಮಾಧ್ಯಮ ಮತ್ತು ವಾಟರ್‌ಮಾರ್ಕ್ ಪರಿಶೀಲನೆ: ಚಿತ್ರಗಳ ಲೋಡಿಂಗ್, ಅನುಪಾತ ಮತ್ತು ವಾಟರ್‌ಮಾರ್ಕ್‌ಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ.",
+  "Typography & Contrast: Ensured WCAG legible font contrast and balanced grid spacing.":"ಅಕ್ಷರ ವಿನ್ಯಾಸ ಮತ್ತು ಕಾಂಟ್ರಾಸ್ಟ್: ಓದಲು ಸುಲಭವಾದ ಅಕ್ಷರ ಬಣ್ಣ ಮತ್ತು ಸಮತೋಲಿತ ಅಂತರವನ್ನು ಖಚಿತಪಡಿಸಲಾಗಿದೆ.",
+  "Keyboard Focus & A11y: Tested visible focus indicators and accessible form labels.":"ಕೀಬೋರ್ಡ್ ಫೋಕಸ್ ಮತ್ತು ಪ್ರವೇಶಸೌಲಭ್ಯ: ಫೋಕಸ್ ಸೂಚನೆಗಳು ಮತ್ತು ಫಾರ್ಮ್ ಲೇಬಲ್‌ಗಳನ್ನು ಪರೀಕ್ಷಿಸಲಾಗಿದೆ.",
+  "SEO & HTTPS Domain: Checked page titles, metadata tags, and domain HTTPS security.":"SEO ಮತ್ತು HTTPS ಡೊಮೇನ್: ಪುಟದ ಶೀರ್ಷಿಕೆಗಳು, ಮೆಟಾಡೇಟಾ ಮತ್ತು HTTPS ಭದ್ರತೆಯನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ.",
+  "Complete Website Architecture: Professional multi-section managed coordination portal.":"ಸಂಪೂರ್ಣ ವೆಬ್‌ಸೈಟ್ ವಿನ್ಯಾಸ: ವೃತ್ತಿಪರ ಬಹು-ವಿಭಾಗಗಳ ಕೆಲಸದ ಸಮನ್ವಯ ವೇದಿಕೆ.",
+  "Nishka Design System: Unified visual identity reflecting Avenza Solutions branding.":"ನಿಷ್ಕಾ ವಿನ್ಯಾಸ ವ್ಯವಸ್ಥೆ: ಅವೆನ್ಜಾ ಸೊಲ್ಯೂಷನ್ಸ್ ಬ್ರ್ಯಾಂಡ್ ಗುರುತನ್ನು ಪ್ರತಿಬಿಂಬಿಸುವ ಏಕೀಕೃತ ವಿನ್ಯಾಸ.",
+  "Dual Conversion Journeys: Distinct pathways for Business Clients and Homemaker Onboarding.":"ಎರಡು ಪ್ರತ್ಯೇಕ ಪ್ರಕ್ರಿಯೆಗಳು: ವ್ಯಾಪಾರ ಗ್ರಾಹಕರು ಮತ್ತು ಗೃಹಿಣಿ ನೋಂದಣಿಗೆ ಪ್ರತ್ಯೇಕ ಮಾರ್ಗಗಳು.",
+  "Enquiry & Registration Integration: Working forms with clear user feedback notes.":"ವಿಚಾರಣೆ ಮತ್ತು ನೋಂದಣಿ ಏಕೀಕರಣ: ಸ್ಪಷ್ಟ ಪ್ರತಿಕ್ರಿಯೆಯೊಂದಿಗೆ ಕಾರ್ಯನಿರ್ವಹಿಸುವ ಫಾರ್ಮ್‌ಗಳು.",
+  "Mobile-First Layouts: Optimized user experience across mobile, tablet, and desktop devices.":"ಮೊಬೈಲ್‌ಗೆ ಆದ್ಯತೆಯ ವಿನ್ಯಾಸ: ಮೊಬೈಲ್, ಟ್ಯಾಬ್ಲೆಟ್ ಮತ್ತು ಡೆಸ್ಕ್‌ಟಾಪ್‌ನಲ್ಲಿ ಉತ್ತಮ ಬಳಕೆದಾರ ಅನುಭವ.",
+  "Privacy policy":"ಗೌಪ್ಯತಾ ನೀತಿ","Terms & Conditions":"ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು","Homemaker Terms":"ಗೃಹಿಣಿಯರ ನಿಯಮಗಳು","Contact Us":"ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ",
+  "Nishka is a managed work coordination platform operated by Avenza Solutions Private Limited, connecting businesses with homemakers for flexible, task-based work in Bengaluru.":"ನಿಷ್ಕಾ ಅವೆನ್ಜಾ ಸೊಲ್ಯೂಷನ್ಸ್ ಪ್ರೈವೇಟ್ ಲಿಮಿಟೆಡ್ ನಿರ್ವಹಿಸುವ ಕೆಲಸದ ಸಮನ್ವಯ ವೇದಿಕೆಯಾಗಿದ್ದು, ಬೆಂಗಳೂರಿನಲ್ಲಿ ಹೊಂದಿಕೊಳ್ಳುವ ಕೆಲಸಗಳಿಗಾಗಿ ವ್ಯಾಪಾರಿಗಳನ್ನು ಗೃಹಿಣಿಯರೊಂದಿಗೆ ಸಂಪರ್ಕಿಸುತ್ತದೆ.",
+  "Nishka operates strictly as a managed work coordination platform and does not position itself as a job agency or direct employer. Task allocations are contingent upon active merchant requirements. Homemaker participation is voluntary and task-based without mandatory registration charges.":"ನಿಷ್ಕಾ ನಿರ್ವಹಿತ ಕೆಲಸದ ಸಮನ್ವಯ ವೇದಿಕೆಯಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ; ಇದು ಉದ್ಯೋಗ ಸಂಸ್ಥೆ ಅಥವಾ ನೇರ ಉದ್ಯೋಗದಾತವಲ್ಲ. ಕೆಲಸದ ಹಂಚಿಕೆ ಸಕ್ರಿಯ ವ್ಯಾಪಾರ ಅವಶ್ಯಕತೆಗಳ ಮೇಲೆ ಅವಲಂಬಿತವಾಗಿರುತ್ತದೆ. ಗೃಹಿಣಿಯರ ಭಾಗವಹಿಸುವಿಕೆ ಸ್ವಯಂಪ್ರೇರಿತವಾಗಿದ್ದು, ಕಡ್ಡಾಯ ನೋಂದಣಿ ಶುಲ್ಕವಿರುವುದಿಲ್ಲ.",
+  "Homemakers should review task details and payment terms before accepting an assignment. Businesses should provide accurate requirements and confirm scope, timelines, and quality expectations before material handover.":"ಕೆಲಸವನ್ನು ಒಪ್ಪಿಕೊಳ್ಳುವ ಮೊದಲು ಗೃಹಿಣಿಯರು ಕೆಲಸದ ವಿವರಗಳು ಮತ್ತು ಪಾವತಿ ಷರತ್ತುಗಳನ್ನು ಪರಿಶೀಲಿಸಬೇಕು. ಸಾಮಗ್ರಿ ಹಸ್ತಾಂತರಿಸುವ ಮೊದಲು ವ್ಯಾಪಾರಿಗಳು ನಿಖರವಾದ ಅವಶ್ಯಕತೆಗಳು, ಕೆಲಸದ ವ್ಯಾಪ್ತಿ, ಸಮಯಾವಧಿ ಮತ್ತು ಗುಣಮಟ್ಟದ ನಿರೀಕ್ಷೆಗಳನ್ನು ದೃಢಪಡಿಸಬೇಕು.",
+  "English | ಕನ್ನಡ":"English | ಕನ್ನಡ","Kannada":"ಕನ್ನಡ","English":"ಇಂಗ್ಲಿಷ್","Hindi":"ಹಿಂದಿ","Tamil":"ತಮಿಳು","Telugu":"ತೆಲುಗು"
 });
 
 function restoreTranslatedTextNodes() {
