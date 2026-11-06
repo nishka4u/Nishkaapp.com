@@ -970,3 +970,15 @@ html, body {
   min-height: 44px;
   margin-bottom: 14px;
 }
+
+
+/* Desktop spacing correction — remove viewport-height filler below content.
+   Mobile rules remain unchanged. */
+@media (min-width: 761px) {
+  .value-section {
+    min-height: 0;
+  }
+  .homemaker-opportunity {
+    min-height: 0;
+  }
+}
